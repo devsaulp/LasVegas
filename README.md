@@ -6,13 +6,40 @@ Hecha con HTML5, CSS3 y JavaScript puro, sin frameworks ni herramientas de compi
 
 ## Cómo ejecutar
 
-El sitio carga los productos desde archivos JSON, por eso necesita un servidor estático (al abrir `index.html` con doble clic el navegador bloquea la carga de datos).
+El sitio carga los productos desde archivos JSON, por eso necesita un servidor web (al abrir `index.html` con doble clic el navegador bloquea la carga de datos). Todas las rutas del proyecto son relativas, así que funciona igual en la raíz del servidor o dentro de una subcarpeta.
+
+### Con XAMPP (Apache)
+
+1. Copia la carpeta del proyecto dentro de `C:\xampp\htdocs\` con el nombre `LasVegas`, de modo que quede `C:\xampp\htdocs\LasVegas\index.html`.
+
+   Si prefieres trabajar en otra carpeta (por ejemplo `C:\LasVegas`) sin copiar archivos, crea un enlace desde una consola `cmd`:
+
+   ```bat
+   mklink /J C:\xampp\htdocs\LasVegas C:\LasVegas
+   ```
+
+2. Abre el **XAMPP Control Panel** y pulsa **Start** en **Apache**. No se necesita MySQL.
+3. Entra en <http://localhost/LasVegas/> desde el navegador.
+
+Si Apache no inicia porque el puerto 80 está ocupado, cambia `Listen 80` por `Listen 8080` en `C:\xampp\apache\conf\httpd.conf` y entra en <http://localhost:8080/LasVegas/>.
+
+### Con Python (alternativa rápida)
+
+Desde la carpeta del proyecto:
 
 ```bash
 python -m http.server 8000
 ```
 
 Luego abre <http://localhost:8000> en el navegador.
+
+### Reglas para mantener las rutas
+
+Para que el sitio siga funcionando en una subcarpeta, nunca uses rutas que empiecen con `/`:
+
+- Desde `index.html`: `assets/css/base.css`, `paginas/catalogo.html`.
+- Desde `paginas/*.html`: `../assets/css/base.css`, `../index.html`, `catalogo.html`.
+- En JavaScript, las rutas a imágenes, datos y páginas se arman con `LV.ruta('...')`, que antepone `""` o `"../"` según el atributo `data-raiz` del `<body>` de cada página.
 
 Para volver a ver el aviso de mayoría de edad o vaciar todo, borra los datos del sitio en el navegador (o, en la consola, `localStorage.clear()`).
 
@@ -111,7 +138,7 @@ Para reemplazar el logo basta con cambiar `assets/img/logo.png` y volver a gener
 
 ## Pruebas realizadas
 
-Se revisaron todas las páginas con Playwright (Chromium) a 360 px y 1280 px, sin errores de consola ni desplazamiento horizontal. Se probó el recorrido completo: aviso de edad (Sí y No), búsqueda y orden, agregar al carrito, cambiar cantidades, quitar, pedido con delivery y Yape, pedido con recojo y efectivo (vuelto) y confirmación.
+Se revisaron todas las páginas con Playwright (Chromium) a 360 px y 1280 px, sin errores de consola ni desplazamiento horizontal, tanto con `python -m http.server` como con Apache de XAMPP en <http://localhost/LasVegas/> (sin errores 404, sin rutas absolutas y con todos los enlaces internos funcionando). Se probó el recorrido completo: aviso de edad (Sí y No), búsqueda y orden, agregar al carrito, cambiar cantidades, quitar, pedido con delivery y Yape, pedido con recojo y efectivo (vuelto) y confirmación.
 
 ---
 
