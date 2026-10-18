@@ -1,0 +1,104 @@
+{
+  "categorias": [
+    { "id": "cervezas", "nombre": "Cervezas", "orden": 1, "principal": true },
+    { "id": "licores", "nombre": "Licores", "orden": 2, "principal": true },
+    { "id": "bebidas-preparadas", "nombre": "Bebidas preparadas", "orden": 3, "principal": false },
+    { "id": "gaseosas-hielo", "nombre": "Gaseosas y hielo", "orden": 4, "principal": false },
+    { "id": "piqueos", "nombre": "Piqueos", "orden": 5, "principal": false },
+    { "id": "cigarrillos", "nombre": "Cigarrillos", "orden": 6, "principal": false },
+    { "id": "limpieza-cuidado", "nombre": "Limpieza y cuidado personal", "orden": 7, "principal": false },
+    { "id": "abarrotes", "nombre": "Abarrotes", "orden": 8, "principal": false }
+  ],
+  "productos": [
+    {
+      "id": "p001", "nombre": "Cerveza Pilsen Callao six pack", "categoria": "cervezas", "marca": "Pilsen Callao",
+      "presentacion": "6 latas de 355 ml", "precio": 24.90, "stock": 40, "stock_minimo": 5, "destacado": true,
+      "descripcion": "Cerveza rubia tipo lager en pack de seis latas. Ideal para compartir bien helada."
+    },
+    {
+      "id": "p002", "nombre": "Cerveza Cusqueña Dorada", "categoria": "cervezas", "marca": "Cusqueña",
+      "presentacion": "Botella de 620 ml", "precio": 7.50, "stock": 60, "stock_minimo": 10, "destacado": true,
+      "descripcion": "Cerveza dorada de cuerpo medio y sabor equilibrado, en botella retornable."
+    },
+    {
+      "id": "p003", "nombre": "Cerveza Cristal caja", "categoria": "cervezas", "marca": "Cristal",
+      "presentacion": "Caja de 12 botellas de 650 ml", "precio": 78.00, "stock": 4, "stock_minimo": 5, "destacado": false,
+      "descripcion": "Caja de doce botellas para reuniones y celebraciones. No incluye envases de cambio."
+    },
+    {
+      "id": "p004", "nombre": "Ron Cartavio Black", "categoria": "licores", "marca": "Cartavio",
+      "presentacion": "Botella de 750 ml", "precio": 39.90, "stock": 18, "stock_minimo": 4, "destacado": true,
+      "descripcion": "Ron añejo peruano de sabor suave, para tomar solo o en cócteles."
+    },
+    {
+      "id": "p005", "nombre": "Pisco Quebranta", "categoria": "licores", "marca": "Pisco de la Casa",
+      "presentacion": "Botella de 700 ml", "precio": 32.50, "stock": 12, "stock_minimo": 3, "destacado": true,
+      "descripcion": "Pisco puro de uva quebranta, perfecto para preparar pisco sour o chilcano."
+    },
+    {
+      "id": "p006", "nombre": "Whisky Johnnie Walker Red Label", "categoria": "licores", "marca": "Johnnie Walker",
+      "presentacion": "Botella de 750 ml", "precio": 69.90, "stock": 0, "stock_minimo": 2, "destacado": false,
+      "descripcion": "Whisky escocés de mezcla, con notas especiadas y ahumadas."
+    },
+    {
+      "id": "p007", "nombre": "Vodka Russkaya", "categoria": "licores", "marca": "Russkaya",
+      "presentacion": "Botella de 750 ml", "precio": 27.90, "stock": 9, "stock_minimo": 3, "destacado": false,
+      "descripcion": "Vodka de triple destilación, neutro y versátil para mezclas."
+    },
+    {
+      "id": "p008", "nombre": "Chilcano de maracuyá", "categoria": "bebidas-preparadas", "marca": "Las Vegas",
+      "presentacion": "Vaso de 500 ml", "precio": 12.00, "stock": 20, "stock_minimo": 5, "destacado": true,
+      "descripcion": "Bebida preparada con pisco, ginger ale, maracuyá y limón. Se prepara al momento."
+    },
+    {
+      "id": "p009", "nombre": "Cuba libre", "categoria": "bebidas-preparadas", "marca": "Las Vegas",
+      "presentacion": "Vaso de 500 ml", "precio": 10.00, "stock": 3, "stock_minimo": 5, "destacado": false,
+      "descripcion": "Ron con gaseosa de cola, limón y hielo. Se prepara al momento."
+    },
+    {
+      "id": "p010", "nombre": "Gaseosa Inca Kola", "categoria": "gaseosas-hielo", "marca": "Inca Kola",
+      "presentacion": "Botella de 3 litros", "precio": 12.50, "stock": 30, "stock_minimo": 6, "destacado": false,
+      "descripcion": "Gaseosa de sabor tradicional en presentación familiar."
+    },
+    {
+      "id": "p011", "nombre": "Bolsa de hielo", "categoria": "gaseosas-hielo", "marca": "Hielo Selva",
+      "presentacion": "Bolsa de 3 kg", "precio": 5.00, "stock": 25, "stock_minimo": 5, "destacado": true,
+      "descripcion": "Hielo en cubos para bebidas y conservadoras."
+    },
+    {
+      "id": "p012", "nombre": "Papas fritas clásicas", "categoria": "piqueos", "marca": "Lay's",
+      "presentacion": "Bolsa de 180 g", "precio": 8.90, "stock": 35, "stock_minimo": 6, "destacado": false,
+      "descripcion": "Papas fritas crocantes con sal, para acompañar tu reunión."
+    },
+    {
+      "id": "p013", "nombre": "Maní salado", "categoria": "piqueos", "marca": "Karinto",
+      "presentacion": "Bolsa de 150 g", "precio": 4.50, "stock": 40, "stock_minimo": 6, "destacado": false,
+      "descripcion": "Maní tostado y salado, el piqueo de siempre."
+    },
+    {
+      "id": "p014", "nombre": "Cigarrillos Lucky Strike", "categoria": "cigarrillos", "marca": "Lucky Strike",
+      "presentacion": "Cajetilla de 20 unidades", "precio": 16.00, "stock": 15, "stock_minimo": 4, "destacado": false,
+      "descripcion": "Venta exclusiva a mayores de 18 años. Fumar es dañino para la salud."
+    },
+    {
+      "id": "p015", "nombre": "Papel higiénico", "categoria": "limpieza-cuidado", "marca": "Suave",
+      "presentacion": "Paquete de 4 rollos", "precio": 6.90, "stock": 22, "stock_minimo": 5, "destacado": false,
+      "descripcion": "Papel higiénico doble hoja, suave y resistente."
+    },
+    {
+      "id": "p016", "nombre": "Jabón de tocador", "categoria": "limpieza-cuidado", "marca": "Protex",
+      "presentacion": "Pack de 3 barras de 110 g", "precio": 9.50, "stock": 14, "stock_minimo": 4, "destacado": false,
+      "descripcion": "Jabón antibacterial para el cuidado diario."
+    },
+    {
+      "id": "p017", "nombre": "Arroz extra", "categoria": "abarrotes", "marca": "Costeño",
+      "presentacion": "Bolsa de 5 kg", "precio": 22.90, "stock": 10, "stock_minimo": 3, "destacado": false,
+      "descripcion": "Arroz extra de grano largo, rinde más."
+    },
+    {
+      "id": "p018", "nombre": "Aceite vegetal", "categoria": "abarrotes", "marca": "Primor",
+      "presentacion": "Botella de 1 litro", "precio": 10.50, "stock": 0, "stock_minimo": 3, "destacado": false,
+      "descripcion": "Aceite vegetal para cocinar y freír."
+    }
+  ]
+}

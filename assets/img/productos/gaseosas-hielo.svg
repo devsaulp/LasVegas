@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" role="img" aria-label="Imagen referencial: Gaseosas y hielo">
+  <rect width="200" height="220" fill="#F7F1E3"/>
+  <circle cx="100" cy="105" r="78" fill="#FFFFFF" stroke="#F3C977" stroke-width="4"/>
+  <rect x="74" y="50" width="52" height="116" rx="12" fill="#2B6F8F"/><rect x="74" y="88" width="52" height="34" fill="#F3C977"/><rect x="84" y="42" width="32" height="10" rx="4" fill="#9FB7C4"/>
+  <rect x="0" y="186" width="200" height="34" fill="#471B0E"/>
+  <text x="100" y="208" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" fill="#F3C977">Gaseosas y hielo</text>
+</svg>

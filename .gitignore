@@ -1,0 +1,24 @@
+# Sistema operativo y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Python (servidor local y pruebas)
+__pycache__/
+*.pyc
+.venv/
+
+# Node (por si se usan herramientas de prueba)
+node_modules/
+
+# Capturas y resultados de pruebas locales
+capturas/
+test-results/
+
+# Datos reales o privados: nunca subir
+*.env
+.env*
+datos/privados/
+*.xlsx

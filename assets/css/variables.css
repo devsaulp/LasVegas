@@ -1,0 +1,34 @@
+/*
+  variables.css
+  Identidad visual de Licorería Las Vegas.
+  Para cambiar colores o tipografías del sitio, edita solo este bloque.
+*/
+:root {
+  /* Paleta (sale del logo: madera y dorado) */
+  --color-madera-oscura: #471B0E;
+  --color-madera: #95582F;
+  --color-dorado: #F3C977;
+  --color-crema: #F7F1E3;
+  --color-texto: #2B1A12;
+  --color-exito: #2E7D32;
+  --color-aviso: #B26A00;
+  --color-error: #C0392B;
+
+  /* Tonos de apoyo derivados */
+  --color-blanco: #FFFFFF;
+  --color-borde: #E2D5BC;
+  --color-texto-suave: #5C4536;
+  --color-dorado-hover: #E9B856;
+  --color-madera-hover: #7D4826;
+
+  /* Tipografías */
+  --fuente-titulos: 'Montserrat', sans-serif;
+  --fuente-texto: 'Open Sans', sans-serif;
+
+  /* Medidas */
+  --radio: 10px;
+  --radio-chico: 6px;
+  --sombra: 0 2px 8px rgba(43, 26, 18, 0.12);
+  --ancho-max: 1200px;
+  --espacio: 16px;
+}

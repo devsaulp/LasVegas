@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delivery y contacto | Licorería Las Vegas</title>
+  <meta name="description" content="Zonas de delivery, tarifas, horarios y contacto.">
+  <link rel="icon" href="../assets/img/logo-provisional.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/componentes.css">
+  <script src="../assets/js/edad.js"></script>
+</head>
+<body data-raiz="../" data-pagina="delivery">
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+  <header id="cabecera"></header>
+
+  <main id="contenido">
+    <div class="contenedor">
+      <nav class="migas" aria-label="Ruta"><a href="../index.html">Inicio</a> / Delivery y contacto</nav>
+      <h1>Delivery y contacto</h1>
+
+      <section class="seccion" aria-labelledby="titulo-zonas">
+        <div class="seccion__cabecera"><h2 id="titulo-zonas">Zonas y tarifas de delivery</h2></div>
+        <p id="horario-delivery"></p>
+        <div class="tabla-envolvente">
+          <table class="tabla-tarjetas">
+            <caption class="oculto-visual">Zonas de delivery con tarifa, pedido mínimo y envío gratis</caption>
+            <thead>
+              <tr><th scope="col">Zona</th><th scope="col">Tarifa</th><th scope="col">Pedido mínimo</th><th scope="col">Envío gratis desde</th><th scope="col">Tiempo estimado</th></tr>
+            </thead>
+            <tbody id="tabla-zonas"></tbody>
+          </table>
+        </div>
+        <p class="ayuda nota-zonas">¿Tu zona no aparece? Escríbenos por WhatsApp y coordinamos. Recojo en tienda: sin costo.</p>
+      </section>
+
+      <section class="seccion grilla-contacto" aria-label="Información de contacto">
+        <div class="tarjeta">
+          <h2>Horario de atención</h2>
+          <ul class="lista-datos" id="lista-horarios"></ul>
+        </div>
+        <div class="tarjeta">
+          <h2>Contáctanos</h2>
+          <ul class="lista-datos" id="lista-contacto"></ul>
+          <a class="btn btn--principal btn-whatsapp" id="btn-whatsapp" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        </div>
+        <div class="tarjeta">
+          <h2>Formas de pago</h2>
+          <ul class="lista-datos">
+            <li><strong>Efectivo:</strong> al recibir o en la tienda.</li>
+            <li><strong>Yape:</strong> envía tu pago y registra el número de operación.</li>
+            <li><strong>Transferencia bancaria:</strong> registra el número de operación.</li>
+            <li><strong>Plin:</strong> solo en la tienda.</li>
+            <li>No aceptamos tarjeta por la web.</li>
+          </ul>
+        </div>
+        <div class="tarjeta">
+          <h2>Venta responsable</h2>
+          <p>Vendemos alcohol y tabaco solo a mayores de 18 años. Al entregar tu pedido, el repartidor te pedirá tu documento de identidad. Si no se verifica la edad, el pedido no se entrega.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer id="pie"></footer>
+
+  <script src="../assets/js/negocio.js"></script>
+  <script src="../assets/js/carrito.js"></script>
+  <script src="../assets/js/utilidades.js"></script>
+  <script src="../assets/js/delivery-contacto.js"></script>
+</body>
+</html>

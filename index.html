@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Licorería Las Vegas | Tarapoto</title>
+  <meta name="description" content="Cervezas, licores, piqueos y más con delivery en Tarapoto. Venta solo a mayores de 18 años.">
+  <link rel="icon" href="assets/img/logo-provisional.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/componentes.css">
+  <script src="assets/js/edad.js"></script>
+</head>
+<body data-raiz="" data-pagina="inicio">
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+  <header id="cabecera"></header>
+
+  <main id="contenido">
+    <div class="contenedor">
+      <section class="banner" aria-labelledby="titulo-banner">
+        <div>
+          <h1 id="titulo-banner">Tu licorería de confianza en Tarapoto</h1>
+          <p>Cervezas heladas, licores, piqueos y todo para tu reunión. Pide por la web y recibe en tu casa o recoge en tienda.</p>
+          <div class="banner__acciones">
+            <a class="btn btn--principal" href="paginas/catalogo.html">Ver catálogo</a>
+            <a class="btn btn--claro" href="paginas/promociones.html">Ver promociones</a>
+          </div>
+        </div>
+        <img class="banner__logo" src="assets/img/logo-web.png" alt="Logo de Licorería Las Vegas"
+             onerror="this.onerror=null;this.src='assets/img/logo-provisional.svg'">
+      </section>
+
+      <section class="seccion" aria-labelledby="titulo-categorias">
+        <div class="seccion__cabecera">
+          <h2 id="titulo-categorias">Categorías</h2>
+          <a href="paginas/catalogo.html">Ver todo el catálogo</a>
+        </div>
+        <div class="grilla-categorias" id="lista-categorias"></div>
+      </section>
+
+      <section class="seccion" aria-labelledby="titulo-destacados">
+        <div class="seccion__cabecera">
+          <h2 id="titulo-destacados">Productos destacados</h2>
+        </div>
+        <div class="grilla-productos" id="lista-destacados"></div>
+      </section>
+
+      <section class="seccion" aria-labelledby="titulo-promos">
+        <div class="seccion__cabecera">
+          <h2 id="titulo-promos">Promociones y combos</h2>
+          <a href="paginas/promociones.html">Ver todas</a>
+        </div>
+        <div class="grilla-promos" id="lista-promos"></div>
+      </section>
+
+      <section class="seccion" aria-labelledby="titulo-delivery">
+        <div class="tarjeta">
+          <h2 id="titulo-delivery">Delivery en Tarapoto, Morales y La Banda</h2>
+          <p>Revisa las zonas, tarifas y horarios de reparto, o recoge tu pedido en tienda sin costo.</p>
+          <a class="btn btn--secundario" href="paginas/delivery-contacto.html">Ver zonas y contacto</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer id="pie"></footer>
+
+  <script src="assets/js/negocio.js"></script>
+  <script src="assets/js/carrito.js"></script>
+  <script src="assets/js/utilidades.js"></script>
+  <script src="assets/js/inicio.js"></script>
+</body>
+</html>
