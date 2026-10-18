@@ -1,0 +1,21 @@
+{
+  "nota": "Tarifas de ejemplo. Deben confirmarse con la propietaria antes de publicar.",
+  "zonas": [
+    {
+      "id": "z1", "nombre": "Tarapoto centro", "tarifa": 3.00, "pedido_minimo": 20.00,
+      "envio_gratis_desde": 80.00, "tiempo_estimado": "20 a 30 min"
+    },
+    {
+      "id": "z2", "nombre": "Morales", "tarifa": 5.00, "pedido_minimo": 30.00,
+      "envio_gratis_desde": 120.00, "tiempo_estimado": "30 a 40 min"
+    },
+    {
+      "id": "z3", "nombre": "La Banda de Shilcayo", "tarifa": 5.00, "pedido_minimo": 30.00,
+      "envio_gratis_desde": 120.00, "tiempo_estimado": "30 a 40 min"
+    },
+    {
+      "id": "z4", "nombre": "Zona periférica (Cacatachi y alrededores)", "tarifa": 8.00, "pedido_minimo": 50.00,
+      "envio_gratis_desde": 200.00, "tiempo_estimado": "40 a 60 min"
+    }
+  ]
+}

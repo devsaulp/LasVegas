@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" role="img" aria-label="Imagen referencial: Cervezas">
+  <rect width="200" height="220" fill="#F7F1E3"/>
+  <circle cx="100" cy="105" r="78" fill="#FFFFFF" stroke="#F3C977" stroke-width="4"/>
+  <rect x="88" y="40" width="24" height="30" rx="4" fill="#95582F"/><path d="M80 70 h40 v90 a10 10 0 0 1 -10 10 h-20 a10 10 0 0 1 -10 -10z" fill="#95582F"/><rect x="84" y="100" width="32" height="30" rx="3" fill="#F3C977"/>
+  <rect x="0" y="186" width="200" height="34" fill="#471B0E"/>
+  <text x="100" y="208" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" fill="#F3C977">Cervezas</text>
+</svg>

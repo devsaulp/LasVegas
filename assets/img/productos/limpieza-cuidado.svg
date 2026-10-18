@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" role="img" aria-label="Imagen referencial: Limpieza y cuidado">
+  <rect width="200" height="220" fill="#F7F1E3"/>
+  <circle cx="100" cy="105" r="78" fill="#FFFFFF" stroke="#F3C977" stroke-width="4"/>
+  <rect x="76" y="70" width="48" height="96" rx="10" fill="#2E7D32"/><rect x="90" y="48" width="20" height="22" fill="#2E7D32"/><path d="M110 50 h22 v10 h-22z" fill="#471B0E"/><rect x="82" y="100" width="36" height="32" rx="3" fill="#F7F1E3"/>
+  <rect x="0" y="186" width="200" height="34" fill="#471B0E"/>
+  <text x="100" y="208" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" fill="#F3C977">Limpieza y cuidado</text>
+</svg>

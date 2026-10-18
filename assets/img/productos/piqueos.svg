@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" role="img" aria-label="Imagen referencial: Piqueos">
+  <rect width="200" height="220" fill="#F7F1E3"/>
+  <circle cx="100" cy="105" r="78" fill="#FFFFFF" stroke="#F3C977" stroke-width="4"/>
+  <path d="M56 100 h88 a44 44 0 0 1 -88 0z" fill="#B26A00"/><circle cx="82" cy="92" r="10" fill="#F3C977"/><circle cx="102" cy="86" r="11" fill="#F3C977"/><circle cx="120" cy="93" r="9" fill="#F3C977"/>
+  <rect x="0" y="186" width="200" height="34" fill="#471B0E"/>
+  <text x="100" y="208" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" fill="#F3C977">Piqueos</text>
+</svg>

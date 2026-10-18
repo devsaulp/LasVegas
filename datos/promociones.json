@@ -1,0 +1,46 @@
+{
+  "nota": "Promociones y combos de ejemplo. No son ofertas reales del negocio.",
+  "promociones": [
+    {
+      "id": "promo1", "titulo": "10 % en Pilsen six pack", "tipo": "porcentaje", "valor": 10,
+      "productos": ["p001"],
+      "descripcion": "Llévate el six pack de Pilsen Callao con 10 % de descuento.",
+      "vigencia": "Válido hasta agotar stock"
+    },
+    {
+      "id": "promo2", "titulo": "15 % en Ron Cartavio Black", "tipo": "porcentaje", "valor": 15,
+      "productos": ["p004"],
+      "descripcion": "Precio especial en Ron Cartavio Black de 750 ml.",
+      "vigencia": "Válido de viernes a domingo"
+    },
+    {
+      "id": "promo3", "titulo": "Vaso de regalo", "tipo": "regalo", "monto_minimo": 100,
+      "productos": [],
+      "descripcion": "Por compras desde S/ 100.00 te regalamos un vaso cervecero de Las Vegas.",
+      "vigencia": "Sujeto a disponibilidad de regalos"
+    }
+  ],
+  "combos": [
+    {
+      "id": "combo1", "nombre": "Combo Chilcano",
+      "descripcion": "Todo para preparar chilcanos en casa.",
+      "items": [
+        { "id": "p005", "cantidad": 1 },
+        { "id": "p010", "cantidad": 1 },
+        { "id": "p011", "cantidad": 1 }
+      ],
+      "precio_promocional": 44.90
+    },
+    {
+      "id": "combo2", "nombre": "Combo Previa",
+      "descripcion": "Cervezas, piqueos y hielo para la previa con amigos.",
+      "items": [
+        { "id": "p001", "cantidad": 2 },
+        { "id": "p012", "cantidad": 1 },
+        { "id": "p013", "cantidad": 1 },
+        { "id": "p011", "cantidad": 1 }
+      ],
+      "precio_promocional": 62.90
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" role="img" aria-label="Imagen referencial: Combos">
+  <rect width="200" height="220" fill="#F7F1E3"/>
+  <circle cx="100" cy="105" r="78" fill="#FFFFFF" stroke="#F3C977" stroke-width="4"/>
+  <rect x="58" y="88" width="84" height="76" rx="6" fill="#471B0E"/><rect x="52" y="74" width="96" height="20" rx="4" fill="#95582F"/><rect x="94" y="74" width="12" height="90" fill="#F3C977"/><path d="M100 74 q-24 -30 -30 -6 q4 10 30 6 q24 -30 30 -6 q-4 10 -30 6z" fill="#F3C977"/>
+  <rect x="0" y="186" width="200" height="34" fill="#471B0E"/>
+  <text x="100" y="208" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" fill="#F3C977">Combos</text>
+</svg>

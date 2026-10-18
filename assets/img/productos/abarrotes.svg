@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" role="img" aria-label="Imagen referencial: Abarrotes">
+  <rect width="200" height="220" fill="#F7F1E3"/>
+  <circle cx="100" cy="105" r="78" fill="#FFFFFF" stroke="#F3C977" stroke-width="4"/>
+  <path d="M64 74 h72 l-6 92 h-60z" fill="#95582F"/><path d="M84 74 v-12 a16 16 0 0 1 32 0 v12" fill="none" stroke="#471B0E" stroke-width="6"/><rect x="80" y="104" width="40" height="26" rx="3" fill="#F3C977"/>
+  <rect x="0" y="186" width="200" height="34" fill="#471B0E"/>
+  <text x="100" y="208" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" fill="#F3C977">Abarrotes</text>
+</svg>

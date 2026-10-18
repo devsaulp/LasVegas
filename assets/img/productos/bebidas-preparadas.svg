@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220" role="img" aria-label="Imagen referencial: Bebidas preparadas">
+  <rect width="200" height="220" fill="#F7F1E3"/>
+  <circle cx="100" cy="105" r="78" fill="#FFFFFF" stroke="#F3C977" stroke-width="4"/>
+  <path d="M70 60 h60 l-8 100 a8 8 0 0 1 -8 8 h-28 a8 8 0 0 1 -8 -8z" fill="#95582F"/><rect x="74" y="75" width="52" height="16" fill="#F3C977"/><line x1="115" y1="40" x2="105" y2="80" stroke="#471B0E" stroke-width="5" stroke-linecap="round"/>
+  <rect x="0" y="186" width="200" height="34" fill="#471B0E"/>
+  <text x="100" y="208" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="14" font-weight="700" fill="#F3C977">Bebidas preparadas</text>
+</svg>
