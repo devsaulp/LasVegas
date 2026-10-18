@@ -1049,3 +1049,17 @@ html.edad-pendiente body {
 .grilla-productos .sin-resultados {
   grid-column: 1 / -1;
 }
+
+/* Los montos nunca se parten en dos líneas */
+.resumen__lista li > span:last-child,
+.resumen__fila > span:last-child,
+.precio,
+.precio--tachado,
+.item-carrito__subtotal {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.detalle__info > .btn {
+  align-self: flex-start;
+}
