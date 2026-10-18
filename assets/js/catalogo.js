@@ -103,6 +103,7 @@
     if (q) params.set('q', q);
     if (orden) params.set('orden', orden);
     var cadena = params.toString();
-    history.replaceState(null, '', window.location.pathname + (cadena ? '?' + cadena : ''));
+    // Ruta relativa: funciona igual en la raíz del servidor o en una subcarpeta
+    history.replaceState(null, '', 'catalogo.html' + (cadena ? '?' + cadena : ''));
   }
 })();
