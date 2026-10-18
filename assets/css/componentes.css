@@ -57,6 +57,17 @@
   color: var(--color-madera-oscura);
 }
 
+.btn--claro {
+  background: transparent;
+  color: var(--color-crema);
+  border-color: var(--color-dorado);
+}
+
+.btn--claro:hover {
+  background: rgba(243, 201, 119, 0.15);
+  color: var(--color-dorado);
+}
+
 .btn--bloque {
   width: 100%;
 }
@@ -1013,10 +1024,28 @@ tr:last-child td {
 }
 
 /* Mientras no se confirme la edad, el contenido queda oculto */
-body.edad-pendiente > :not(.modal-edad):not(script) {
+html.edad-pendiente body > :not(.modal-edad) {
   visibility: hidden;
 }
 
-body.edad-pendiente {
+html.edad-pendiente body {
   overflow: hidden;
+}
+
+/* Espaciados de bloques que aparecen o desaparecen en el pedido */
+.bloque-condicional {
+  margin-top: 14px;
+}
+
+.seccion--relacionados {
+  margin-top: 32px;
+}
+
+.nota-zonas,
+.btn-whatsapp {
+  margin-top: 12px;
+}
+
+.grilla-productos .sin-resultados {
+  grid-column: 1 / -1;
 }

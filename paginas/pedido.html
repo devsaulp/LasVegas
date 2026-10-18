@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Realizar pedido | Licorería Las Vegas</title>
+  <meta name="description" content="Completa los datos de tu pedido.">
+  <link rel="icon" href="../assets/img/logo-provisional.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/componentes.css">
+  <script src="../assets/js/edad.js"></script>
+</head>
+<body data-raiz="../" data-pagina="carrito">
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+  <header id="cabecera"></header>
+
+  <main id="contenido">
+    <div class="contenedor">
+      <nav class="migas" aria-label="Ruta"><a href="../index.html">Inicio</a> / <a href="carrito.html">Carrito</a> / Pedido</nav>
+      <h1>Datos del pedido</h1>
+      <div id="estado-pedido"></div>
+
+      <div class="diseno-pedido oculto" id="diseno-pedido">
+        <form id="form-pedido" novalidate>
+          <p>Los campos con <span class="requerido" aria-hidden="true">*</span> son obligatorios.</p>
+          <div class="aviso aviso--error oculto" id="resumen-errores" role="alert" tabindex="-1"></div>
+
+          <fieldset>
+            <legend>1. Tus datos</legend>
+            <div class="campo">
+              <label for="nombre">Nombre y apellido <span class="requerido" aria-hidden="true">*</span></label>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" maxlength="80" required aria-describedby="error-nombre">
+              <span class="mensaje-error" id="error-nombre"></span>
+            </div>
+            <div class="campo">
+              <label for="telefono">Celular <span class="requerido" aria-hidden="true">*</span></label>
+              <input type="tel" id="telefono" name="telefono" inputmode="numeric" autocomplete="tel-national" maxlength="11"
+                     placeholder="9XXXXXXXX" required aria-describedby="ayuda-telefono error-telefono">
+              <span class="ayuda" id="ayuda-telefono">9 dígitos, empieza con 9. Te llamaremos o escribiremos para confirmar.</span>
+              <span class="mensaje-error" id="error-telefono"></span>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>2. Entrega</legend>
+            <div class="opciones opciones--dos" role="radiogroup" aria-label="Tipo de entrega">
+              <label class="opcion"><input type="radio" name="entrega" value="delivery" checked>
+                <span>Delivery<small>Te lo llevamos a tu casa</small></span></label>
+              <label class="opcion"><input type="radio" name="entrega" value="recojo">
+                <span>Recojo en tienda<small>Sin costo de envío</small></span></label>
+            </div>
+
+            <div id="bloque-delivery" class="bloque-condicional">
+              <div class="campo">
+                <label for="zona">Zona de entrega <span class="requerido" aria-hidden="true">*</span></label>
+                <select id="zona" name="zona" required aria-describedby="ayuda-zona error-zona">
+                  <option value="">Elige tu zona</option>
+                </select>
+                <span class="ayuda" id="ayuda-zona"></span>
+                <span class="mensaje-error" id="error-zona"></span>
+              </div>
+              <div class="campo">
+                <label for="direccion">Dirección <span class="requerido" aria-hidden="true">*</span></label>
+                <input type="text" id="direccion" name="direccion" autocomplete="street-address" maxlength="120"
+                       placeholder="Calle, número y barrio" required aria-describedby="error-direccion">
+                <span class="mensaje-error" id="error-direccion"></span>
+              </div>
+              <div class="campo">
+                <label for="referencia">Referencia (opcional)</label>
+                <input type="text" id="referencia" name="referencia" maxlength="120" placeholder="Ejemplo: frente al parque">
+              </div>
+            </div>
+
+            <div id="bloque-recojo" class="aviso aviso--info bloque-condicional oculto">
+              <p id="texto-recojo"></p>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>3. Método de pago</legend>
+            <div class="opciones opciones--fila" role="radiogroup" aria-label="Método de pago" aria-describedby="error-pago">
+              <label class="opcion"><input type="radio" name="pago" value="efectivo" id="pago">
+                <span>Efectivo<small>Pagas al recibir</small></span></label>
+              <label class="opcion"><input type="radio" name="pago" value="yape">
+                <span>Yape<small>Desde tu celular</small></span></label>
+              <label class="opcion"><input type="radio" name="pago" value="transferencia">
+                <span>Transferencia<small>Bancaria</small></span></label>
+            </div>
+            <span class="mensaje-error" id="error-pago"></span>
+            <p class="ayuda bloque-condicional">No aceptamos tarjeta por la web. Plin solo se acepta en la tienda.</p>
+
+            <div id="bloque-efectivo" class="bloque-condicional oculto">
+              <div class="campo">
+                <label for="paga-con">¿Con cuánto pagarás? (S/) <span class="requerido" aria-hidden="true">*</span></label>
+                <input type="number" id="paga-con" name="paga-con" min="0" step="0.10" inputmode="decimal"
+                       aria-describedby="ayuda-vuelto texto-vuelto error-paga-con">
+                <span class="ayuda" id="ayuda-vuelto">Así llevamos tu vuelto exacto.</span>
+                <span class="vuelto" id="texto-vuelto" aria-live="polite"></span>
+                <span class="mensaje-error" id="error-paga-con"></span>
+              </div>
+            </div>
+
+            <div id="bloque-digital" class="bloque-condicional oculto">
+              <div class="aviso aviso--info" id="instrucciones-digital"></div>
+              <div class="campo">
+                <label for="operacion">Número de operación <span class="requerido" aria-hidden="true">*</span></label>
+                <input type="text" id="operacion" name="operacion" inputmode="numeric" maxlength="12"
+                       aria-describedby="ayuda-operacion error-operacion">
+                <span class="ayuda" id="ayuda-operacion">Lo encuentras en la constancia de tu pago (de 6 a 12 dígitos).</span>
+                <span class="mensaje-error" id="error-operacion"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>4. Confirmación</legend>
+            <div class="campo">
+              <label class="opcion"><input type="checkbox" id="mayor-edad" name="mayor-edad" aria-describedby="error-mayor-edad">
+                <span>Declaro que soy mayor de 18 años y que mostraré mi documento al recibir el pedido.</span></label>
+              <span class="mensaje-error" id="error-mayor-edad"></span>
+            </div>
+          </fieldset>
+        </form>
+
+        <aside class="resumen" aria-labelledby="titulo-resumen">
+          <h2 id="titulo-resumen">Resumen del pedido</h2>
+          <ul class="resumen__lista" id="resumen-lista"></ul>
+          <div class="resumen__fila"><span>Subtotal</span><span id="resumen-subtotal">S/ 0.00</span></div>
+          <div class="resumen__fila"><span>Envío</span><span id="resumen-envio">S/ 0.00</span></div>
+          <p class="ayuda" id="resumen-nota-envio"></p>
+          <div class="resumen__fila resumen__fila--total"><span>Total</span><span id="resumen-total">S/ 0.00</span></div>
+          <p class="ayuda" id="resumen-regalo"></p>
+          <button type="submit" form="form-pedido" class="btn btn--principal btn--bloque">Confirmar pedido</button>
+          <a class="btn btn--borde btn--bloque" href="carrito.html">Volver al carrito</a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer id="pie"></footer>
+
+  <script src="../assets/js/negocio.js"></script>
+  <script src="../assets/js/carrito.js"></script>
+  <script src="../assets/js/utilidades.js"></script>
+  <script src="../assets/js/pedido.js"></script>
+</body>
+</html>

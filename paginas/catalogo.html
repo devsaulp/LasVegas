@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo | Licorería Las Vegas</title>
+  <meta name="description" content="Catálogo de cervezas, licores, piqueos y más.">
+  <link rel="icon" href="../assets/img/logo-provisional.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/componentes.css">
+  <script src="../assets/js/edad.js"></script>
+</head>
+<body data-raiz="../" data-pagina="catalogo">
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+  <header id="cabecera"></header>
+
+  <main id="contenido">
+    <div class="contenedor">
+      <nav class="migas" aria-label="Ruta"><a href="../index.html">Inicio</a> / Catálogo</nav>
+      <h1>Catálogo</h1>
+
+      <form class="filtros" id="form-filtros" role="search">
+        <div class="campo">
+          <label for="buscar">Buscar por nombre</label>
+          <input type="search" id="buscar" name="buscar" placeholder="Ejemplo: cerveza, ron, pisco" autocomplete="off">
+        </div>
+        <div class="campo">
+          <label for="filtro-categoria">Categoría</label>
+          <select id="filtro-categoria" name="categoria">
+            <option value="">Todas las categorías</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="orden">Ordenar por</label>
+          <select id="orden" name="orden">
+            <option value="">Relevancia</option>
+            <option value="precio-asc">Precio: de menor a mayor</option>
+            <option value="precio-desc">Precio: de mayor a menor</option>
+          </select>
+        </div>
+      </form>
+
+      <p class="resultado-conteo" id="conteo" aria-live="polite"></p>
+      <div class="grilla-productos" id="lista-productos"></div>
+    </div>
+  </main>
+
+  <footer id="pie"></footer>
+
+  <script src="../assets/js/negocio.js"></script>
+  <script src="../assets/js/carrito.js"></script>
+  <script src="../assets/js/utilidades.js"></script>
+  <script src="../assets/js/catalogo.js"></script>
+</body>
+</html>
