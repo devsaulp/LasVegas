@@ -195,6 +195,11 @@ html.sesion-pendiente body {
   .velo {
     display: none;
   }
+
+  /* La columna del menú llega hasta el final aunque la página sea larga */
+  .panel {
+    background: linear-gradient(to right, var(--color-madera-oscura) 257px, var(--color-dorado) 257px, var(--color-dorado) 260px, transparent 260px);
+  }
 }
 
 /* ---------- Encabezado de página ---------- */

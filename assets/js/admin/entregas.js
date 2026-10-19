@@ -85,8 +85,11 @@
         return l.cantidad + ' × ' + LV.escapar(l.nombre);
       }).join(', ') + '</li>' +
       '</ul>' +
-      '<p><strong>Monto a cobrar:</strong> <span class="cobro">' + LV.moneda(cobro) + '</span>' +
-      (cobro ? vuelto : ' (ya pagado con ' + Panel.METODOS[p.pago.metodo] + ')') + '</p>' +
+      (p.estado === 'entregado'
+        ? '<p><strong>Cobrado:</strong> <span class="cobro">' + LV.moneda(cobro) + '</span>' +
+          (cobro ? ' en efectivo' : ' (pagado con ' + Panel.METODOS[p.pago.metodo] + ')') + '</p>'
+        : '<p><strong>Monto a cobrar:</strong> <span class="cobro">' + LV.moneda(cobro) + '</span>' +
+          (cobro ? vuelto : ' (ya pagado con ' + Panel.METODOS[p.pago.metodo] + ')') + '</p>') +
       botones +
       '</article>';
   }
