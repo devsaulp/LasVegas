@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es-PE" data-roles="administrador">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Reportes | Panel Las Vegas</title>
+  <link rel="icon" href="../assets/img/logo-provisional.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/componentes.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="../assets/js/admin/sesion.js"></script>
+</head>
+<body data-raiz="../" data-pagina="reportes" data-titulo="Reportes">
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+  <div class="panel">
+    <aside class="menu-lateral" id="menu-lateral" aria-label="Menú del panel"></aside>
+    <div class="panel__principal">
+      <header class="barra-superior" id="barra-superior"></header>
+      <main id="contenido">
+        <div class="contenedor">
+          <div class="encabezado-pagina">
+            <div>
+              <h1>Reportes</h1>
+              <p>Ventas de los últimos 7 días (sin pedidos cancelados).</p>
+            </div>
+          </div>
+          <p class="aviso aviso--alerta aviso-demo">Cifras de ejemplo calculadas con los pedidos de demostración.</p>
+          <section aria-label="Resumen de la semana">
+            <div class="tarjetas-resumen" id="resumen-reportes"></div>
+          </section>
+          <div class="grilla-reportes">
+            <section class="tarjeta" aria-labelledby="titulo-ventas-dia">
+              <h2 id="titulo-ventas-dia">Ventas por día</h2>
+              <ul class="grafico" id="grafico-dias"></ul>
+            </section>
+            <section class="tarjeta" aria-labelledby="titulo-mas-vendidos">
+              <h2 id="titulo-mas-vendidos">Productos más vendidos</h2>
+              <ul class="grafico grafico--productos" id="grafico-productos"></ul>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/negocio.js"></script>
+  <script src="../assets/js/utilidades.js"></script>
+  <script src="../assets/js/admin/panel.js"></script>
+  <script src="../assets/js/admin/reportes.js"></script>
+</body>
+</html>

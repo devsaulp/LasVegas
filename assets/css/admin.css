@@ -1,0 +1,694 @@
+/*
+  admin.css
+  Estilos propios del panel interno. Se carga después de variables.css,
+  base.css y componentes.css, y reutiliza sus colores y componentes.
+*/
+
+/* ---------- Mientras se revisa la sesión no se muestra nada ---------- */
+html.sesion-pendiente body {
+  visibility: hidden;
+}
+
+/* ---------- Estructura general ---------- */
+.panel {
+  display: flex;
+  min-height: 100vh;
+  flex: 1;
+}
+
+.panel__principal {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel main {
+  padding: 20px 0 40px;
+}
+
+.panel .contenedor {
+  max-width: 1100px;
+}
+
+/* ---------- Menú lateral ---------- */
+.menu-lateral {
+  background: var(--color-madera-oscura);
+  color: var(--color-crema);
+  border-right: 3px solid var(--color-dorado);
+  width: 260px;
+  max-width: 85vw;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  transform: translateX(-105%);
+  visibility: hidden; /* cerrado: tampoco se puede llegar con el teclado */
+  transition: transform 0.2s ease, visibility 0.2s ease;
+  overflow-y: auto;
+}
+
+.menu-lateral.abierto {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.menu-lateral .logo {
+  padding: 4px 6px 16px;
+  border-bottom: 1px solid rgba(243, 201, 119, 0.3);
+  margin-bottom: 12px;
+}
+
+.menu-lateral__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.menu-lateral__lista a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-crema);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 12px 12px;
+  border-radius: var(--radio-chico);
+  min-height: 44px;
+}
+
+.menu-lateral__lista a:hover {
+  background: rgba(243, 201, 119, 0.12);
+  color: var(--color-dorado);
+}
+
+.menu-lateral__lista a[aria-current="page"] {
+  background: var(--color-dorado);
+  color: var(--color-texto);
+}
+
+.menu-lateral__lista svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.menu-lateral__pie {
+  border-top: 1px solid rgba(243, 201, 119, 0.3);
+  padding-top: 12px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+}
+
+.menu-lateral__pie p {
+  margin: 0 0 10px;
+  padding: 0 6px;
+}
+
+.menu-lateral__pie strong {
+  color: var(--color-dorado);
+  display: block;
+}
+
+.btn-cerrar-sesion {
+  width: 100%;
+  background: transparent;
+  color: var(--color-dorado);
+  border-color: var(--color-dorado);
+}
+
+.btn-cerrar-sesion:hover {
+  background: var(--color-dorado);
+  color: var(--color-texto);
+}
+
+/* Fondo oscuro detrás del menú abierto en celular */
+.velo {
+  position: fixed;
+  inset: 0;
+  background: rgba(43, 26, 18, 0.55);
+  z-index: 90;
+}
+
+/* ---------- Barra superior ---------- */
+.barra-superior {
+  background: var(--color-blanco);
+  border-bottom: 1px solid var(--color-borde);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.barra-superior__fila {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+}
+
+.barra-superior .btn-menu {
+  color: var(--color-madera-oscura);
+  border-color: var(--color-madera);
+  flex-shrink: 0;
+}
+
+.barra-superior__titulo {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  color: var(--color-madera-oscura);
+  font-size: 1.05rem;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chip-rol {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-crema);
+  border: 1px solid var(--color-madera);
+  color: var(--color-madera-oscura);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+  .menu-lateral {
+    position: sticky;
+    transform: none;
+    visibility: visible;
+    height: 100vh;
+    flex-shrink: 0;
+  }
+
+  .barra-superior .btn-menu,
+  .velo {
+    display: none;
+  }
+}
+
+/* ---------- Encabezado de página ---------- */
+.encabezado-pagina {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.encabezado-pagina h1 {
+  margin: 0;
+}
+
+.encabezado-pagina p {
+  margin: 4px 0 0;
+  color: var(--color-texto-suave);
+}
+
+.aviso-demo {
+  font-size: 0.85rem;
+}
+
+/* ---------- Tarjetas de resumen (tablero) ---------- */
+.tarjetas-resumen {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 900px) {
+  .tarjetas-resumen { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.tarjeta-dato {
+  background: var(--color-blanco);
+  border: 1px solid var(--color-borde);
+  border-top: 4px solid var(--color-dorado);
+  border-radius: var(--radio);
+  padding: 14px;
+  box-shadow: var(--sombra);
+  min-width: 0;
+}
+
+.tarjeta-dato--aviso { border-top-color: var(--color-aviso); }
+.tarjeta-dato--camino { border-top-color: var(--color-madera); }
+.tarjeta-dato--exito { border-top-color: var(--color-exito); }
+
+.tarjeta-dato__titulo {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-texto-suave);
+  margin: 0 0 4px;
+}
+
+.tarjeta-dato__valor {
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-madera-oscura);
+  margin: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.2;
+}
+
+.tarjeta-dato__nota {
+  font-size: 0.8rem;
+  color: var(--color-texto-suave);
+  margin: 4px 0 0;
+}
+
+/* ---------- Estados del pedido (texto y color) ---------- */
+.estado--pendiente_pago { color: #8A5200; background: #FFF3DF; }
+.estado--pagado { color: var(--color-exito); background: #EAF5EA; }
+.estado--en_preparacion { color: var(--color-madera); background: #F6EBE1; }
+.estado--asignado { color: #5B3A8C; background: #F1ECF8; }
+.estado--en_camino { color: #1F5F7A; background: #E6F1F6; }
+.estado--entregado { color: #1E5B22; background: #E3F0E3; }
+.estado--cancelado { color: var(--color-error); background: #FBECEA; }
+
+/* ---------- Tablas del panel ---------- */
+.tabla-panel td,
+.tabla-panel th {
+  vertical-align: middle;
+}
+
+.tabla-panel td .btn {
+  min-height: 38px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.tabla-panel .numero {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tabla-panel .monto {
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+/* Filas con stock bajo el mínimo */
+.fila-aviso td {
+  background: #FFF3DF;
+}
+
+.fila-aviso td:first-child {
+  box-shadow: inset 5px 0 0 var(--color-aviso);
+}
+
+.fila-agotado td {
+  background: #FBECEA;
+}
+
+.fila-agotado td:first-child {
+  box-shadow: inset 5px 0 0 var(--color-error);
+}
+
+.texto-aviso {
+  color: #8A5200;
+  font-weight: 700;
+}
+
+.texto-error {
+  color: var(--color-error);
+  font-weight: 700;
+}
+
+@media (max-width: 599px) {
+  .tabla-tarjetas td:first-child {
+    padding-top: 10px;
+  }
+
+  .tabla-tarjetas td.celda-acciones::before {
+    content: none;
+  }
+
+  .tabla-tarjetas td.celda-acciones {
+    justify-content: flex-end;
+  }
+
+  .tabla-tarjetas .fila-aviso,
+  .tabla-tarjetas .fila-agotado {
+    border-left: 5px solid var(--color-aviso);
+  }
+
+  .tabla-tarjetas .fila-agotado {
+    border-left-color: var(--color-error);
+  }
+
+  .tabla-tarjetas .fila-aviso td:first-child,
+  .tabla-tarjetas .fila-agotado td:first-child {
+    box-shadow: none;
+  }
+}
+
+/* ---------- Barra de herramientas (filtros y botones) ---------- */
+.herramientas {
+  display: grid;
+  gap: 12px;
+  background: var(--color-blanco);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 14px;
+  margin-bottom: 16px;
+  align-items: end;
+}
+
+.herramientas .campo {
+  margin-bottom: 0;
+}
+
+@media (min-width: 700px) {
+  .herramientas { grid-template-columns: 1fr auto; }
+  .herramientas--tres { grid-template-columns: 1fr 1fr auto; }
+}
+
+.casilla {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.casilla input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-madera);
+}
+
+/* ---------- Lista de últimos pedidos ---------- */
+.lista-pedidos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.lista-pedidos li {
+  background: var(--color-blanco);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: center;
+}
+
+.lista-pedidos__cliente {
+  font-size: 0.88rem;
+  color: var(--color-texto-suave);
+  overflow-wrap: anywhere;
+}
+
+.lista-pedidos .monto {
+  text-align: right;
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---------- Ventana de detalle (dialog) ---------- */
+.ventana {
+  border: 3px solid var(--color-dorado);
+  border-radius: var(--radio);
+  padding: 0;
+  width: calc(100% - 24px);
+  max-width: 640px;
+  max-height: calc(100vh - 32px);
+  background: var(--color-crema);
+  color: var(--color-texto);
+}
+
+.ventana::backdrop {
+  background: rgba(43, 26, 18, 0.6);
+}
+
+.ventana__cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-madera-oscura);
+  color: var(--color-dorado);
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+}
+
+.ventana__cabecera h2 {
+  color: var(--color-dorado);
+  margin: 0;
+  font-size: 1.1rem;
+  overflow-wrap: anywhere;
+}
+
+.ventana__cerrar {
+  background: transparent;
+  border: 1px solid var(--color-dorado);
+  color: var(--color-dorado);
+  border-radius: var(--radio-chico);
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ventana__cuerpo {
+  padding: 16px;
+}
+
+.ventana__cuerpo h3 {
+  margin-top: 16px;
+}
+
+.ventana__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.historial {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.historial li {
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--color-borde);
+}
+
+/* ---------- Formulario de producto ---------- */
+.grilla-form {
+  display: grid;
+  gap: 0 14px;
+}
+
+@media (min-width: 600px) {
+  .grilla-form { grid-template-columns: 1fr 1fr; }
+  .grilla-form .campo--ancho { grid-column: 1 / -1; }
+}
+
+/* ---------- Reportes: barras con CSS ---------- */
+.grafico {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.grafico__fila {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+.grafico__etiqueta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.88rem;
+}
+
+.grafico__etiqueta span:first-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.grafico__etiqueta span:last-child {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.grafico__barra {
+  height: 18px;
+  background: var(--color-crema);
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.grafico__relleno {
+  height: 100%;
+  width: var(--valor, 0%);
+  background: linear-gradient(90deg, var(--color-madera), var(--color-dorado));
+  border-radius: 999px;
+}
+
+.grafico--productos .grafico__relleno {
+  background: linear-gradient(90deg, var(--color-madera-oscura), var(--color-madera));
+}
+
+.grilla-reportes {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .grilla-reportes { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- Entregas del repartidor ---------- */
+.lista-entregas {
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 900px) {
+  .lista-entregas { grid-template-columns: 1fr 1fr; }
+}
+
+.tarjeta-entrega {
+  background: var(--color-blanco);
+  border: 1px solid var(--color-borde);
+  border-left: 6px solid var(--color-madera);
+  border-radius: var(--radio);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.tarjeta-entrega--en_camino { border-left-color: #1F5F7A; }
+.tarjeta-entrega--entregado { border-left-color: var(--color-exito); opacity: 0.85; }
+
+.tarjeta-entrega__cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+}
+
+.tarjeta-entrega h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta-entrega .lista-datos li {
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+
+.cobro {
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--color-madera-oscura);
+}
+
+.tarjeta-entrega__botones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* ---------- Inicio de sesión ---------- */
+.pagina-login {
+  background:
+    linear-gradient(135deg, rgba(71, 27, 14, 0.97), rgba(149, 88, 47, 0.93)),
+    var(--color-madera-oscura);
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.caja-login {
+  background: var(--color-crema);
+  border: 3px solid var(--color-dorado);
+  border-radius: var(--radio);
+  padding: 24px 20px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.caja-login__logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+}
+
+.caja-login h1 {
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.caja-login > p {
+  text-align: center;
+  color: var(--color-texto-suave);
+}
+
+.usuarios-demo {
+  margin-top: 18px;
+  font-size: 0.85rem;
+}
+
+.usuarios-demo table {
+  font-size: 0.85rem;
+}
+
+.usuarios-demo th,
+.usuarios-demo td {
+  padding: 6px 8px;
+}
+
+.enlace-sitio {
+  display: block;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.lista-pedidos .numero {
+  font-family: var(--fuente-titulos);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.lista-pedidos .estado {
+  justify-self: end;
+}
