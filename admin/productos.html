@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es-PE" data-roles="administrador">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Productos | Panel Las Vegas</title>
+  <link rel="icon" href="../assets/img/logo-provisional.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/componentes.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="../assets/js/admin/sesion.js"></script>
+</head>
+<body data-raiz="../" data-pagina="productos" data-titulo="Productos">
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+  <div class="panel">
+    <aside class="menu-lateral" id="menu-lateral" aria-label="Menú del panel"></aside>
+    <div class="panel__principal">
+      <header class="barra-superior" id="barra-superior"></header>
+      <main id="contenido">
+        <div class="contenedor">
+          <div class="encabezado-pagina">
+            <div>
+              <h1>Productos</h1>
+              <p>Catálogo de la tienda con precio, stock y disponibilidad.</p>
+            </div>
+            <button type="button" class="btn btn--principal" id="btn-nuevo">Agregar producto</button>
+          </div>
+          <p class="aviso aviso--alerta aviso-demo">Panel de demostración: los datos son de ejemplo y los cambios se guardan solo en este navegador.</p>
+          <div class="herramientas">
+            <div class="campo">
+              <label for="buscar-producto">Buscar producto</label>
+              <input type="search" id="buscar-producto" placeholder="Nombre, marca o categoría" autocomplete="off">
+            </div>
+            <p class="resultado-conteo" id="conteo-productos" aria-live="polite"></p>
+          </div>
+          <div class="tabla-envolvente">
+            <table class="tabla-tarjetas tabla-panel">
+              <caption class="oculto-visual">Lista de productos</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Stock</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col"><span class="oculto-visual">Acciones</span></th>
+                </tr>
+              </thead>
+              <tbody id="tabla-productos"><tr><td colspan="6">Cargando productos...</td></tr></tbody>
+            </table>
+          </div>
+
+          <dialog class="ventana" id="ventana-producto" aria-labelledby="ventana-producto-titulo">
+            <div class="ventana__cabecera">
+              <h2 id="ventana-producto-titulo">Producto</h2>
+              <button type="button" class="ventana__cerrar" data-cerrar aria-label="Cerrar">×</button>
+            </div>
+            <div class="ventana__cuerpo">
+              <form id="form-producto" novalidate>
+                <p class="ayuda">Demostración: los cambios se ven en la tabla pero no se guardan en el archivo de datos.</p>
+                <div class="grilla-form">
+                  <div class="campo campo--ancho">
+                    <label for="prod-nombre">Nombre <span class="requerido" aria-hidden="true">*</span></label>
+                    <input type="text" id="prod-nombre" maxlength="80" aria-describedby="error-prod-nombre">
+                    <span class="mensaje-error" id="error-prod-nombre"></span>
+                  </div>
+                  <div class="campo">
+                    <label for="prod-categoria">Categoría <span class="requerido" aria-hidden="true">*</span></label>
+                    <select id="prod-categoria" aria-describedby="error-prod-categoria">
+                      <option value="">Elige una categoría</option>
+                    </select>
+                    <span class="mensaje-error" id="error-prod-categoria"></span>
+                  </div>
+                  <div class="campo">
+                    <label for="prod-marca">Marca</label>
+                    <input type="text" id="prod-marca" maxlength="40">
+                  </div>
+                  <div class="campo campo--ancho">
+                    <label for="prod-presentacion">Presentación</label>
+                    <input type="text" id="prod-presentacion" maxlength="60" placeholder="Ejemplo: Botella de 750 ml">
+                  </div>
+                  <div class="campo">
+                    <label for="prod-precio">Precio (S/) <span class="requerido" aria-hidden="true">*</span></label>
+                    <input type="number" id="prod-precio" min="0" step="0.10" inputmode="decimal" aria-describedby="error-prod-precio">
+                    <span class="mensaje-error" id="error-prod-precio"></span>
+                  </div>
+                  <div class="campo">
+                    <label for="prod-stock">Stock <span class="requerido" aria-hidden="true">*</span></label>
+                    <input type="number" id="prod-stock" min="0" step="1" inputmode="numeric" aria-describedby="error-prod-stock">
+                    <span class="mensaje-error" id="error-prod-stock"></span>
+                  </div>
+                  <div class="campo">
+                    <label for="prod-minimo">Stock mínimo <span class="requerido" aria-hidden="true">*</span></label>
+                    <input type="number" id="prod-minimo" min="0" step="1" inputmode="numeric" aria-describedby="error-prod-minimo">
+                    <span class="mensaje-error" id="error-prod-minimo"></span>
+                  </div>
+                  <div class="campo">
+                    <label class="casilla"><input type="checkbox" id="prod-destacado"> Destacado en el inicio</label>
+                  </div>
+                  <div class="campo campo--ancho">
+                    <label for="prod-descripcion">Descripción</label>
+                    <textarea id="prod-descripcion" maxlength="300"></textarea>
+                  </div>
+                </div>
+                <div class="ventana__acciones">
+                  <button type="submit" class="btn btn--principal">Guardar</button>
+                  <button type="button" class="btn btn--borde" data-cerrar>Cancelar</button>
+                </div>
+              </form>
+            </div>
+          </dialog>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/negocio.js"></script>
+  <script src="../assets/js/utilidades.js"></script>
+  <script src="../assets/js/admin/panel.js"></script>
+  <script src="../assets/js/admin/productos.js"></script>
+</body>
+</html>

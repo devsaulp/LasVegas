@@ -1,0 +1,157 @@
+{
+  "nota": "Pedidos de ejemplo. 'dias_atras' indica hace cuántos días se hizo el pedido (0 = hoy); la fecha y el número LV-AAAAMMDD-#### se calculan al cargar para que el tablero siempre tenga pedidos del día. Clientes, direcciones y teléfonos son ficticios.",
+  "pedidos": [
+    {
+      "dias_atras": 0, "correlativo": 1, "hora": "10:12",
+      "cliente": { "nombre": "Lucía Torres", "telefono": "900000101" },
+      "entrega": { "tipo": "delivery", "zona": "Tarapoto centro", "direccion": "Jr. Los Pinos 210", "referencia": "Puerta verde" },
+      "pago": { "metodo": "efectivo", "operacion": "", "pagaCon": 50 },
+      "lineas": [ { "id": "p002", "cantidad": 4, "precio": 7.50 }, { "id": "p011", "cantidad": 1, "precio": 5.00 } ],
+      "envio": 3.00, "estado": "entregado", "repartidor": "repartidor"
+    },
+    {
+      "dias_atras": 0, "correlativo": 2, "hora": "11:40",
+      "cliente": { "nombre": "Jorge Paredes", "telefono": "900000102" },
+      "entrega": { "tipo": "recojo", "zona": "", "direccion": "", "referencia": "" },
+      "pago": { "metodo": "yape", "operacion": "48213977", "pagaCon": null },
+      "lineas": [ { "id": "p004", "cantidad": 1, "precio": 33.92 }, { "id": "p010", "cantidad": 1, "precio": 12.50 } ],
+      "envio": 0, "estado": "en_preparacion", "repartidor": ""
+    },
+    {
+      "dias_atras": 0, "correlativo": 3, "hora": "13:05",
+      "cliente": { "nombre": "Rosa Vela", "telefono": "900000103" },
+      "entrega": { "tipo": "delivery", "zona": "Morales", "direccion": "Jr. Ejemplo 455", "referencia": "Frente a la bodega" },
+      "pago": { "metodo": "transferencia", "operacion": "7781203344", "pagaCon": null },
+      "lineas": [ { "id": "p001", "cantidad": 2, "precio": 22.41 }, { "id": "p012", "cantidad": 2, "precio": 8.90 }, { "id": "p011", "cantidad": 1, "precio": 5.00 } ],
+      "envio": 5.00, "estado": "asignado", "repartidor": "repartidor"
+    },
+    {
+      "dias_atras": 0, "correlativo": 4, "hora": "15:30",
+      "cliente": { "nombre": "Pedro Ramírez", "telefono": "900000104" },
+      "entrega": { "tipo": "delivery", "zona": "La Banda de Shilcayo", "direccion": "Av. Prueba 120", "referencia": "Casa de dos pisos" },
+      "pago": { "metodo": "efectivo", "operacion": "", "pagaCon": 100 },
+      "lineas": [ { "id": "p005", "cantidad": 1, "precio": 32.50 }, { "id": "p010", "cantidad": 1, "precio": 12.50 }, { "id": "p011", "cantidad": 2, "precio": 5.00 } ],
+      "envio": 5.00, "estado": "en_camino", "repartidor": "repartidor"
+    },
+    {
+      "dias_atras": 0, "correlativo": 5, "hora": "17:48",
+      "cliente": { "nombre": "Ana Flores", "telefono": "900000105" },
+      "entrega": { "tipo": "delivery", "zona": "Tarapoto centro", "direccion": "Psje. Demostración 33", "referencia": "" },
+      "pago": { "metodo": "yape", "operacion": "51200987", "pagaCon": null },
+      "lineas": [ { "id": "p003", "cantidad": 1, "precio": 78.00 } ],
+      "envio": 3.00, "estado": "pendiente_pago", "repartidor": ""
+    },
+    {
+      "dias_atras": 0, "correlativo": 6, "hora": "18:20",
+      "cliente": { "nombre": "Miguel Saavedra", "telefono": "900000106" },
+      "entrega": { "tipo": "recojo", "zona": "", "direccion": "", "referencia": "" },
+      "pago": { "metodo": "transferencia", "operacion": "6600123487", "pagaCon": null },
+      "lineas": [ { "id": "p014", "cantidad": 1, "precio": 16.00 }, { "id": "p013", "cantidad": 2, "precio": 4.50 } ],
+      "envio": 0, "estado": "pendiente_pago", "repartidor": ""
+    },
+    {
+      "dias_atras": 1, "correlativo": 1, "hora": "12:15",
+      "cliente": { "nombre": "Carmen Díaz", "telefono": "900000107" },
+      "entrega": { "tipo": "delivery", "zona": "Tarapoto centro", "direccion": "Jr. Muestra 98", "referencia": "" },
+      "pago": { "metodo": "efectivo", "operacion": "", "pagaCon": 60 },
+      "lineas": [ { "id": "p002", "cantidad": 6, "precio": 7.50 }, { "id": "p012", "cantidad": 1, "precio": 8.90 } ],
+      "envio": 3.00, "estado": "entregado", "repartidor": "repartidor"
+    },
+    {
+      "dias_atras": 1, "correlativo": 2, "hora": "16:02",
+      "cliente": { "nombre": "Luis Gómez", "telefono": "900000108" },
+      "entrega": { "tipo": "recojo", "zona": "", "direccion": "", "referencia": "" },
+      "pago": { "metodo": "yape", "operacion": "33019875", "pagaCon": null },
+      "lineas": [ { "id": "p006", "cantidad": 1, "precio": 69.90 } ],
+      "envio": 0, "estado": "entregado", "repartidor": ""
+    },
+    {
+      "dias_atras": 1, "correlativo": 3, "hora": "19:25",
+      "cliente": { "nombre": "Sofía Ruiz", "telefono": "900000109" },
+      "entrega": { "tipo": "delivery", "zona": "Morales", "direccion": "Jr. Ficticio 702", "referencia": "" },
+      "pago": { "metodo": "yape", "operacion": "", "pagaCon": null },
+      "lineas": [ { "id": "p001", "cantidad": 3, "precio": 22.41 } ],
+      "envio": 5.00, "estado": "cancelado", "repartidor": ""
+    },
+    {
+      "dias_atras": 1, "correlativo": 4, "hora": "21:10",
+      "cliente": { "nombre": "Raúl Chávez", "telefono": "900000110" },
+      "entrega": { "tipo": "delivery", "zona": "La Banda de Shilcayo", "direccion": "Av. Modelo 15", "referencia": "" },
+      "pago": { "metodo": "transferencia", "operacion": "1200349876", "pagaCon": null },
+      "lineas": [ { "id": "p004", "cantidad": 2, "precio": 33.92 }, { "id": "p010", "cantidad": 1, "precio": 12.50 } ],
+      "envio": 5.00, "estado": "entregado", "repartidor": "repartidor"
+    },
+    {
+      "dias_atras": 2, "correlativo": 1, "hora": "18:45",
+      "cliente": { "nombre": "Elena Vásquez", "telefono": "900000111" },
+      "entrega": { "tipo": "recojo", "zona": "", "direccion": "", "referencia": "" },
+      "pago": { "metodo": "efectivo", "operacion": "", "pagaCon": 60 },
+      "lineas": [ { "id": "p008", "cantidad": 3, "precio": 12.00 }, { "id": "p009", "cantidad": 2, "precio": 10.00 } ],
+      "envio": 0, "estado": "entregado", "repartidor": ""
+    },
+    {
+      "dias_atras": 2, "correlativo": 2, "hora": "20:30",
+      "cliente": { "nombre": "Hugo Pinedo", "telefono": "900000112" },
+      "entrega": { "tipo": "delivery", "zona": "Tarapoto centro", "direccion": "Jr. Prueba 300", "referencia": "" },
+      "pago": { "metodo": "yape", "operacion": "90011234", "pagaCon": null },
+      "lineas": [ { "id": "p017", "cantidad": 1, "precio": 22.90 }, { "id": "p015", "cantidad": 2, "precio": 6.90 }, { "id": "p016", "cantidad": 1, "precio": 9.50 } ],
+      "envio": 3.00, "estado": "entregado", "repartidor": "repartidor"
+    },
+    {
+      "dias_atras": 3, "correlativo": 1, "hora": "19:05",
+      "cliente": { "nombre": "Diana Arévalo", "telefono": "900000113" },
+      "entrega": { "tipo": "delivery", "zona": "Zona periférica (Cacatachi y alrededores)", "direccion": "Carretera de ejemplo km 4", "referencia": "" },
+      "pago": { "metodo": "transferencia", "operacion": "5512098873", "pagaCon": null },
+      "lineas": [ { "id": "p004", "cantidad": 1, "precio": 33.92 }, { "id": "p005", "cantidad": 1, "precio": 32.50 }, { "id": "p010", "cantidad": 2, "precio": 12.50 } ],
+      "envio": 8.00, "estado": "entregado", "repartidor": "repartidor"
+    },
+    {
+      "dias_atras": 3, "correlativo": 2, "hora": "22:15",
+      "cliente": { "nombre": "Óscar Mendoza", "telefono": "900000114" },
+      "entrega": { "tipo": "recojo", "zona": "", "direccion": "", "referencia": "" },
+      "pago": { "metodo": "efectivo", "operacion": "", "pagaCon": 100 },
+      "lineas": [ { "id": "p002", "cantidad": 12, "precio": 7.50 } ],
+      "envio": 0, "estado": "entregado", "repartidor": ""
+    },
+    {
+      "dias_atras": 4, "correlativo": 1, "hora": "20:40",
+      "cliente": { "nombre": "Patricia Salas", "telefono": "900000115" },
+      "entrega": { "tipo": "delivery", "zona": "Morales", "direccion": "Jr. Demostración 61", "referencia": "" },
+      "pago": { "metodo": "yape", "operacion": "70045612", "pagaCon": null },
+      "lineas": [ { "id": "p001", "cantidad": 4, "precio": 22.41 }, { "id": "p011", "cantidad": 2, "precio": 5.00 } ],
+      "envio": 5.00, "estado": "entregado", "repartidor": "repartidor"
+    },
+    {
+      "dias_atras": 5, "correlativo": 1, "hora": "17:20",
+      "cliente": { "nombre": "Andrés Celis", "telefono": "900000116" },
+      "entrega": { "tipo": "recojo", "zona": "", "direccion": "", "referencia": "" },
+      "pago": { "metodo": "efectivo", "operacion": "", "pagaCon": 70 },
+      "lineas": [ { "id": "p007", "cantidad": 2, "precio": 27.90 }, { "id": "p010", "cantidad": 1, "precio": 12.50 } ],
+      "envio": 0, "estado": "entregado", "repartidor": ""
+    },
+    {
+      "dias_atras": 5, "correlativo": 2, "hora": "21:55",
+      "cliente": { "nombre": "Teresa Ramos", "telefono": "900000117" },
+      "entrega": { "tipo": "delivery", "zona": "Tarapoto centro", "direccion": "Jr. Muestra 14", "referencia": "" },
+      "pago": { "metodo": "efectivo", "operacion": "", "pagaCon": 30 },
+      "lineas": [ { "id": "p012", "cantidad": 1, "precio": 8.90 }, { "id": "p013", "cantidad": 3, "precio": 4.50 } ],
+      "envio": 3.00, "estado": "cancelado", "repartidor": ""
+    },
+    {
+      "dias_atras": 6, "correlativo": 1, "hora": "19:30",
+      "cliente": { "nombre": "Fernando Lozano", "telefono": "900000118" },
+      "entrega": { "tipo": "delivery", "zona": "La Banda de Shilcayo", "direccion": "Av. Ficticia 220", "referencia": "" },
+      "pago": { "metodo": "transferencia", "operacion": "8834001276", "pagaCon": null },
+      "lineas": [ { "id": "p003", "cantidad": 1, "precio": 78.00 }, { "id": "p011", "cantidad": 2, "precio": 5.00 } ],
+      "envio": 5.00, "estado": "entregado", "repartidor": "repartidor"
+    },
+    {
+      "dias_atras": 6, "correlativo": 2, "hora": "22:40",
+      "cliente": { "nombre": "Gabriela Ríos", "telefono": "900000119" },
+      "entrega": { "tipo": "recojo", "zona": "", "direccion": "", "referencia": "" },
+      "pago": { "metodo": "efectivo", "operacion": "", "pagaCon": 70 },
+      "lineas": [ { "id": "p014", "cantidad": 2, "precio": 16.00 }, { "id": "p002", "cantidad": 4, "precio": 7.50 } ],
+      "envio": 0, "estado": "entregado", "repartidor": ""
+    }
+  ]
+}

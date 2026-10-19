@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es-PE" data-roles="administrador cajero">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pedidos | Panel Las Vegas</title>
+  <link rel="icon" href="../assets/img/logo-provisional.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/componentes.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="../assets/js/admin/sesion.js"></script>
+</head>
+<body data-raiz="../" data-pagina="pedidos" data-titulo="Pedidos">
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+  <div class="panel">
+    <aside class="menu-lateral" id="menu-lateral" aria-label="Menú del panel"></aside>
+    <div class="panel__principal">
+      <header class="barra-superior" id="barra-superior"></header>
+      <main id="contenido">
+        <div class="contenedor">
+          <div class="encabezado-pagina">
+            <div>
+              <h1>Pedidos</h1>
+              <p>Revisa los pedidos y actualiza su estado.</p>
+            </div>
+          </div>
+          <p class="aviso aviso--alerta aviso-demo">Panel de demostración: los datos son de ejemplo y los cambios se guardan solo en este navegador.</p>
+          <div class="herramientas">
+            <div class="campo">
+              <label for="filtro-estado">Filtrar por estado</label>
+              <select id="filtro-estado">
+                <option value="">Todos los estados</option>
+              </select>
+            </div>
+            <p class="resultado-conteo" id="conteo-pedidos" aria-live="polite"></p>
+          </div>
+          <div class="tabla-envolvente">
+            <table class="tabla-tarjetas tabla-panel">
+              <caption class="oculto-visual">Lista de pedidos</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Número</th>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Tipo</th>
+                  <th scope="col">Total</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Hora</th>
+                  <th scope="col"><span class="oculto-visual">Acciones</span></th>
+                </tr>
+              </thead>
+              <tbody id="tabla-pedidos"><tr><td colspan="7">Cargando pedidos...</td></tr></tbody>
+            </table>
+          </div>
+
+          <dialog class="ventana" id="ventana-pedido" aria-labelledby="ventana-pedido-titulo">
+            <div class="ventana__cabecera">
+              <h2 id="ventana-pedido-titulo">Pedido</h2>
+              <button type="button" class="ventana__cerrar" data-cerrar aria-label="Cerrar">×</button>
+            </div>
+            <div class="ventana__cuerpo" id="ventana-pedido-cuerpo"></div>
+          </dialog>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../assets/js/negocio.js"></script>
+  <script src="../assets/js/utilidades.js"></script>
+  <script src="../assets/js/admin/panel.js"></script>
+  <script src="../assets/js/admin/pedidos.js"></script>
+</body>
+</html>

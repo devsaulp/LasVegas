@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es-PE">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Ingresar | Panel Las Vegas</title>
+  <link rel="icon" href="../assets/img/logo-provisional.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/componentes.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="../assets/js/admin/sesion.js"></script>
+</head>
+<body class="pagina-login" data-raiz="../">
+  <main class="caja-login" id="contenido">
+    <img class="caja-login__logo" src="../assets/img/logo-web.png" alt="Logo de Licorería Las Vegas"
+         onerror="this.onerror=null;this.src='../assets/img/logo-provisional.svg'">
+    <h1>Panel interno</h1>
+    <p>Ingresa con tu usuario del personal.</p>
+
+    <form id="form-login" novalidate>
+      <div class="aviso aviso--error oculto" id="error-login" role="alert"></div>
+      <div class="campo">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="usuario" autocomplete="username" autocapitalize="none" spellcheck="false"
+               aria-describedby="error-usuario">
+        <span class="mensaje-error" id="error-usuario"></span>
+      </div>
+      <div class="campo">
+        <label for="clave">Contraseña</label>
+        <input type="password" id="clave" name="clave" autocomplete="current-password" aria-describedby="error-clave">
+        <span class="mensaje-error" id="error-clave"></span>
+      </div>
+      <button type="submit" class="btn btn--principal btn--bloque">Ingresar</button>
+    </form>
+
+    <details class="usuarios-demo">
+      <summary>Usuarios de ejemplo</summary>
+      <p class="ayuda">Inicio de sesión simulado, solo para demostración.</p>
+      <div class="tabla-envolvente">
+        <table>
+          <thead><tr><th scope="col">Usuario</th><th scope="col">Contraseña</th><th scope="col">Rol</th></tr></thead>
+          <tbody id="tabla-usuarios-demo"></tbody>
+        </table>
+      </div>
+    </details>
+
+    <a class="enlace-sitio" href="../index.html">Volver a la tienda</a>
+  </main>
+
+  <script src="../assets/js/negocio.js"></script>
+  <script src="../assets/js/utilidades.js"></script>
+  <script src="../assets/js/admin/login.js"></script>
+</body>
+</html>
