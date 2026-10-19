@@ -1,6 +1,6 @@
 # Licorería Las Vegas (Tarapoto)
 
-Página web de catálogo y pedidos para Licorería Las Vegas. Esta es una versión **básica y visual**: se puede recorrer de punta a punta (aviso de edad, catálogo, carrito, pedido y confirmación), pero no tiene servidor, base de datos ni cuentas de usuario.
+Página web de catálogo y pedidos para Licorería Las Vegas. Esta es una versión **básica y visual**: se puede recorrer de punta a punta (aviso de edad, catálogo, carrito, pedido y confirmación), pero no tiene servidor, base de datos ni cuentas de usuario reales. Incluye además un **panel interno** de demostración para el personal (ver más abajo).
 
 Hecha con HTML5, CSS3 y JavaScript puro, sin frameworks ni herramientas de compilación.
 
@@ -43,6 +43,47 @@ Para que el sitio siga funcionando en una subcarpeta, nunca uses rutas que empie
 
 Para volver a ver el aviso de mayoría de edad o vaciar todo, borra los datos del sitio en el navegador (o, en la consola, `localStorage.clear()`).
 
+## Panel interno
+
+Panel para el personal en la carpeta `admin/`. Con XAMPP se abre en <http://localhost/LasVegas/admin/login.html> (con Python, en <http://localhost:8000/admin/login.html>).
+
+### Usuarios de ejemplo
+
+| Usuario | Contraseña | Rol | Entra a |
+| --- | --- | --- | --- |
+| `admin` | `admin123` | Administrador | Tablero, Pedidos, Productos, Stock y Reportes |
+| `cajero` | `cajero123` | Cajero | Tablero y Pedidos |
+| `repartidor` | `reparto123` | Repartidor | Entregas |
+
+Los usuarios están en `datos/usuarios.json` y también se muestran en la pantalla de ingreso, en "Usuarios de ejemplo".
+
+### Pantallas
+
+- **Ingresar** (`login.html`): usuario y contraseña. Según el usuario se entra con su rol, que se guarda en `localStorage`.
+- **Tablero** (`index.html`): pedidos de hoy, pendientes de pago, en camino y ventas del día, más los últimos pedidos.
+- **Pedidos** (`pedidos.html`): tabla con número, cliente, tipo, total, estado y hora; filtro por estado y ventana de detalle para cambiar el estado. Para "Asignado" y "En camino" se elige el repartidor; esos dos estados solo aparecen en pedidos con delivery.
+- **Productos** (`productos.html`): tabla con buscador y formulario para agregar o editar.
+- **Stock** (`stock.html`): stock actual y mínimo; los productos bajo el mínimo se resaltan en color de aviso y los agotados en color de error.
+- **Reportes** (`reportes.html`): ventas por día de los últimos 7 días y productos más vendidos, con barras hechas solo con CSS.
+- **Entregas** (`entregas.html`): entregas asignadas al repartidor con dirección, teléfono y monto a cobrar, y los botones "Salí" (pasa a En camino) y "Entregué" (pasa a Entregado, después de confirmar que se verificó la mayoría de edad).
+
+Estados de un pedido: Pendiente de pago, Pagado, En preparación, Asignado, En camino, Entregado y Cancelado.
+
+### Acceso por rol
+
+Cada página del panel indica en `<html data-roles="...">` qué roles pueden verla. `assets/js/admin/sesion.js` se carga en el `<head>` y, antes de mostrar nada:
+
+- sin sesión, envía a `login.html`;
+- con un rol que no corresponde, envía a la pantalla principal de ese rol (Tablero para administrador y cajero, Entregas para el repartidor).
+
+El menú lateral solo muestra las opciones del rol. En celular se abre con el botón de hamburguesa y se cierra con la tecla Escape o tocando fuera. "Cerrar sesión" está al final del menú.
+
+### Pedidos de ejemplo
+
+`datos/pedidos.json` trae 19 pedidos de los últimos 7 días. Cada uno indica `dias_atras` (0 = hoy) y `correlativo`; al cargar, el panel calcula la fecha y el número `LV-AAAAMMDD-####`, así el tablero siempre tiene pedidos del día. Los pedidos hechos en la tienda desde el mismo navegador también aparecen en el panel, como "Pendiente de pago".
+
+Para volver a los datos de ejemplo originales, borra en el navegador la clave `lv_admin_cambios` de `localStorage` (o usa `localStorage.clear()`, que además borra el carrito y la sesión).
+
 ## Estructura
 
 ```
@@ -77,6 +118,22 @@ datos/
   productos.json            Categorías y productos de ejemplo
   promociones.json          Promociones y combos de ejemplo
   zonas.json                Zonas de delivery con tarifas de ejemplo
+  pedidos.json              Pedidos de ejemplo para el panel
+  usuarios.json             Usuarios de ejemplo del panel (uno por rol)
+admin/
+  login.html                Ingreso simulado
+  index.html                Tablero
+  pedidos.html              Pedidos y cambio de estado
+  productos.html            Productos con buscador y formulario
+  stock.html                Stock actual y mínimo
+  reportes.html             Ventas por día y más vendidos
+  entregas.html             Entregas del repartidor
+assets/css/admin.css        Estilos propios del panel (usa variables y componentes del sitio)
+assets/js/admin/
+  sesion.js                 Sesión simulada y control de acceso por rol
+  panel.js                  Menú lateral, barra superior, estados y carga de pedidos
+  login.js, tablero.js, pedidos.js, productos.js,
+  stock.js, reportes.js, entregas.js   Un archivo por pantalla del panel
 docs/                       Documento técnico y anexos (Word)
 ```
 
@@ -125,6 +182,9 @@ Para reemplazar el logo basta con cambiar `assets/img/logo.png` y volver a gener
 - **Contacto, Yape, cuenta bancaria, dirección, horarios, tarifas y precios**: todos son datos ficticios o de ejemplo.
 - **Imágenes de producto**: dibujos SVG por categoría, no fotos reales.
 - **Horarios de pedido**: se muestran, pero no se bloquean pedidos fuera de horario.
+- **Inicio de sesión del panel**: no hay seguridad real. Las contraseñas de ejemplo están en texto plano en `datos/usuarios.json` y cualquiera puede leerlas; el rol se guarda en `localStorage`. En la versión con servidor, las contraseñas deben guardarse con hash y la sesión validarse en el servidor.
+- **Cambios en el panel**: los cambios de estado de pedidos se guardan solo en ese navegador (`lv_admin_cambios`). Los productos agregados o editados quedan en memoria y se pierden al recargar; no se escriben en `productos.json`.
+- **Reportes**: se calculan con los pedidos de ejemplo.
 
 ## Decisiones tomadas
 
@@ -135,10 +195,15 @@ Para reemplazar el logo basta con cambiar `assets/img/logo.png` y volver a gener
 - Las promociones no son acumulables: cada producto tiene como máximo un descuento.
 - Al confirmar el pedido el carrito se vacía.
 - El script de la página del carrito se llama `carrito-pagina.js` para no confundirse con el módulo `carrito.js`.
+- El panel no muestra el aviso de mayoría de edad del sitio público, porque es solo para el personal.
+- En Stock, "bajo el mínimo" significa stock menor que el mínimo; en la tienda, "Pocas unidades" se muestra cuando el stock es igual o menor que el mínimo.
+- "Ventas del día" y los reportes no cuentan los pedidos cancelados.
 
 ## Pruebas realizadas
 
 Se revisaron todas las páginas con Playwright (Chromium) a 360 px y 1280 px, sin errores de consola ni desplazamiento horizontal, tanto con `python -m http.server` como con Apache de XAMPP en <http://localhost/LasVegas/> (sin errores 404, sin rutas absolutas y con todos los enlaces internos funcionando). Se probó el recorrido completo: aviso de edad (Sí y No), búsqueda y orden, agregar al carrito, cambiar cantidades, quitar, pedido con delivery y Yape, pedido con recojo y efectivo (vuelto) y confirmación.
+
+En el panel interno se probó, también con Apache en <http://localhost/LasVegas/admin/>: redirección al login sin sesión, errores de ingreso, menú y acceso por rol (administrador, cajero y repartidor), tablero, filtro y cambio de estado de pedidos con elección de repartidor, búsqueda, edición y alta de productos con validación, filtro de stock bajo, reportes, botones "Salí" y "Entregué", cierre de sesión y menú de celular, a 360 px y 1280 px, sin errores de consola ni desbordes.
 
 ---
 
