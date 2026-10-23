@@ -6,8 +6,8 @@
 window.NEGOCIO = {
   nombre: 'Licorería Las Vegas',
   lema: 'Minimarket y licorería en Tarapoto',
-  direccion: 'Jr. Ejemplo 123, Tarapoto, San Martín (dirección ficticia)',
-  referencia: 'A media cuadra de la plaza (referencia de ejemplo)',
+  direccion: 'Jr. Progreso 787, Tarapoto',
+  referencia: 'A lado de Essalud',
   telefono: '900 000 000',
   whatsapp: '900000000', // solo dígitos, sin el código de país
   correo: 'contacto@ejemplo.com',
@@ -22,10 +22,23 @@ window.NEGOCIO = {
     titular: 'Titular de ejemplo'
   },
   horarios: [
-    { dias: 'Lunes a jueves', horas: '09:00 a 23:00' },
-    { dias: 'Viernes y sábado', horas: '09:00 a 02:00' },
-    { dias: 'Domingo', horas: '10:00 a 22:00' }
+    { dias: 'Lunes a Viernes', horas: '09:00 a 23:00' },
+    { dias: 'Sabado y Domingo', horas: '09:00 a 02:00' }
+
   ],
   horarioDelivery: 'Todos los días de 10:00 a 22:00',
   cantidadMaximaPorProducto: 24
 };
+
+// Permite al Superadmin / Desarrollador aplicar ajustes en caliente sin tocar el archivo
+try {
+  var devConfig = JSON.parse(localStorage.getItem('lv_dev_config') || 'null');
+  if (devConfig && typeof devConfig === 'object') {
+    for (var k in devConfig) {
+      if (Object.prototype.hasOwnProperty.call(devConfig, k)) {
+        window.NEGOCIO[k] = devConfig[k];
+      }
+    }
+  }
+} catch (e) { /* sin almacenamiento */ }
+

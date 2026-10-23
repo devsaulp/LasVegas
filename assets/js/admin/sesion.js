@@ -11,12 +11,14 @@ var Sesion = (function () {
 
   // Pantalla principal de cada rol
   var INICIO = {
+    superadmin: 'superadmin.html',
     administrador: 'index.html',
     cajero: 'index.html',
     repartidor: 'entregas.html'
   };
 
   var NOMBRE_ROL = {
+    superadmin: 'Superadmin (Dev)',
     administrador: 'Administrador',
     cajero: 'Cajero',
     repartidor: 'Repartidor'

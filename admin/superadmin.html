@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es-PE" data-roles="superadmin">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Superadmin | Gestión de Plataforma</title>
+  <link rel="icon" href="../assets/img/logo-provisional.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/componentes.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <script src="../assets/js/admin/sesion.js"></script>
+</head>
+<body data-raiz="../" data-pagina="superadmin" data-titulo="Superadmin (Plataforma)">
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+  <div class="panel">
+    <aside class="menu-lateral" id="menu-lateral" aria-label="Menú del panel"></aside>
+    <div class="panel__principal">
+      <header class="barra-superior" id="barra-superior"></header>
+      <main id="contenido">
+        <div class="contenedor">
+          <!-- Encabezado de la Consola de Plataforma -->
+          <div class="encabezado-pagina">
+            <div>
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:4px;">
+                <h1>Consola de Plataforma (Superadmin)</h1>
+                <span class="chip-dev"><span class="chip-dev__punto"></span> SERVICIO DE TI ACTIVO</span>
+              </div>
+              <p>Administración del software como servicio (SaaS), gestión de licencias de licorerías, soporte técnico y mantenimiento de infraestructura.</p>
+            </div>
+            <a class="btn btn--claro" href="../index.html" target="_blank" rel="noopener">Ver tienda en producción ↗</a>
+          </div>
+
+          <!-- Principio de Aislamiento y Confidencialidad -->
+          <div class="aviso aviso--info" style="margin-bottom:20px; border-left:4px solid var(--color-madera-oscura);">
+            <strong style="display:block; font-size:0.95rem; margin-bottom:4px; color:var(--color-madera-oscura);">
+              🔒 Principio de Aislamiento Multirrol y Confidencialidad Comercial:
+            </strong>
+            El Superadmin actúa como <strong>proveedor técnico del software</strong>. Siguiendo las directrices de privacidad comercial, el Superadmin <strong>no tiene visibilidad ni acceso a las operaciones internas de ninguna licorería</strong> (pedidos, clientes, ventas, ingresos monetarios, caja, catálogo de productos ni inventario de stock). Dichos módulos son exclusivos del personal interno de cada tienda.
+          </div>
+
+          <!-- Métricas Técnicas de la Infraestructura -->
+          <section aria-label="Métricas de infraestructura del sistema">
+            <div class="tarjetas-resumen">
+              <div class="tarjeta-dato">
+                <p class="tarjeta-dato__titulo">ENTORNO DE EJECUCIÓN</p>
+                <p class="tarjeta-dato__valor" id="metrica-entorno" style="font-size:1.25rem;">Detectando...</p>
+                <p class="tarjeta-dato__nota" id="metrica-protocolo">Protocolo y Host</p>
+              </div>
+              <div class="tarjeta-dato tarjeta-dato--camino">
+                <p class="tarjeta-dato__titulo">ALMACENAMIENTO TÉCNICO</p>
+                <p class="tarjeta-dato__valor" id="metrica-storage">0 KB</p>
+                <p class="tarjeta-dato__nota" id="metrica-llaves">0 llaves de sistema</p>
+              </div>
+              <div class="tarjeta-dato tarjeta-dato--aviso">
+                <p class="tarjeta-dato__titulo">DISPONIBILIDAD DE SERVICIOS</p>
+                <p class="tarjeta-dato__valor" id="metrica-salud" style="font-size:1.25rem;">100% Operativo</p>
+                <p class="tarjeta-dato__nota" id="metrica-archivos">Servicios y JSONs sincronizados</p>
+              </div>
+              <div class="tarjeta-dato tarjeta-dato--exito">
+                <p class="tarjeta-dato__titulo">TIENDAS CLIENTE (TENANTS)</p>
+                <p class="tarjeta-dato__valor" id="metrica-tiendas">1 Activa</p>
+                <p class="tarjeta-dato__nota">Licencia de software vigente</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Mensaje global de notificación -->
+          <div id="alerta-superadmin" class="aviso aviso--exito oculto" role="status" style="margin-bottom:20px;"></div>
+
+          <!-- Pestañas de la Consola de Plataforma -->
+          <nav class="pestanas-dev" aria-label="Secciones de la consola de plataforma" role="tablist">
+            <button type="button" class="pestana-btn activa" role="tab" aria-selected="true" aria-controls="tab-tiendas" id="btn-tab-tiendas">🏢 Licorerías Afiliadas (Tenants)</button>
+            <button type="button" class="pestana-btn" role="tab" aria-selected="false" aria-controls="tab-mantenimiento" id="btn-tab-mantenimiento">⚙️ Mantenimiento Global</button>
+            <button type="button" class="pestana-btn" role="tab" aria-selected="false" aria-controls="tab-cuentas" id="btn-tab-cuentas">🔑 Cuentas de Acceso al Sistema</button>
+            <button type="button" class="pestana-btn" role="tab" aria-selected="false" aria-controls="tab-backups" id="btn-tab-backups">💾 Respaldos & Snapshots</button>
+            <button type="button" class="pestana-btn" role="tab" aria-selected="false" aria-controls="tab-diagnostico" id="btn-tab-diagnostico">🩺 Diagnóstico & Auditoría</button>
+          </nav>
+
+          <!-- ==================== PESTAÑA 1: GESTIÓN DE TIENDAS / TENANTS ==================== -->
+          <div class="panel-pestana activo" id="tab-tiendas" role="tabpanel" aria-labelledby="btn-tab-tiendas">
+            <div class="tarjeta-dev">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+                <div>
+                  <h2 class="tarjeta-dev__titulo" style="margin-bottom:4px;">Licorerías Afiliadas al Software (Tenants)</h2>
+                  <p class="tarjeta-dev__subtitulo" style="margin-bottom:0;">
+                    Monitoreo de suscripciones y estado del servicio de software brindado a cada establecimiento.
+                  </p>
+                </div>
+                <button type="button" class="btn btn--principal" id="btn-nueva-tienda" style="min-height:38px;">+ Registrar Nueva Licorería</button>
+              </div>
+
+              <div class="tabla-envolvente">
+                <table class="tabla-panel">
+                  <thead>
+                    <tr>
+                      <th scope="col">Licorería / Establecimiento</th>
+                      <th scope="col">ID Tenant</th>
+                      <th scope="col">Ubicación</th>
+                      <th scope="col">Plan de Licencia</th>
+                      <th scope="col">Estado de Suscripción</th>
+                      <th scope="col" style="text-align:right;">Control de Servicio</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-tiendas-dev">
+                    <!-- Se llena dinámicamente -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== PESTAÑA 2: MANTENIMIENTO GLOBAL ==================== -->
+          <div class="panel-pestana" id="tab-mantenimiento" role="tabpanel" aria-labelledby="btn-tab-mantenimiento">
+            <div class="tarjeta-dev">
+              <h2 class="tarjeta-dev__titulo">Estado de la Plataforma y Mantenimiento Técnico</h2>
+              <p class="tarjeta-dev__subtitulo">
+                Configuración global de infraestructura. Permite activar avisos de mantenimiento técnico o ventanas de corte programado sin intervenir en la gestión comercial del negocio.
+              </p>
+
+              <form id="form-mantenimiento-global">
+                <div class="switch-contenedor" style="margin-bottom:16px;">
+                  <label class="switch-toggle" for="cfg-modo-mantenimiento">
+                    <input type="checkbox" id="cfg-modo-mantenimiento" name="modoMantenimiento">
+                    <span class="switch-deslizador"></span>
+                  </label>
+                  <div>
+                    <strong style="color:var(--color-madera-oscura); display:block; font-size:0.95rem;">Activar Modo Mantenimiento en la Plataforma</strong>
+                    <span style="font-size:0.82rem; color:var(--color-texto-suave);">Muestra un banner superior en todas las tiendas informando sobre labores técnicas o actualizaciones en curso.</span>
+                  </div>
+                </div>
+
+                <div class="campo">
+                  <label for="cfg-mensaje-mantenimiento">Mensaje de notificación del desarrollador</label>
+                  <input type="text" id="cfg-mensaje-mantenimiento" name="mensajeMantenimiento" placeholder="Ej: Plataforma en mantenimiento preventivo por actualización de servidores.">
+                </div>
+
+                <div class="cuadricula-formulario" style="margin-top:16px;">
+                  <div class="campo">
+                    <label for="cfg-version-sistema">Versión del Sistema</label>
+                    <input type="text" id="cfg-version-sistema" value="1.2.0 (Stable)" readonly style="background:#F6EBE1;">
+                  </div>
+                  <div class="campo">
+                    <label for="cfg-servidor-tipo">Tipo de Servidor Web</label>
+                    <input type="text" id="cfg-servidor-tipo" value="Apache HTTP Server (XAMPP)" readonly style="background:#F6EBE1;">
+                  </div>
+                </div>
+
+                <div class="fila-acciones-dev" style="margin-top:20px; border-top:1px solid var(--color-borde); padding-top:16px;">
+                  <button type="submit" class="btn btn--principal">💾 Guardar Estado de Plataforma</button>
+                  <button type="button" class="btn btn--claro" id="btn-limpiar-mantenimiento">Desactivar Mantenimiento</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- ==================== PESTAÑA 3: CUENTAS DE ACCESO AL SISTEMA ==================== -->
+          <div class="panel-pestana" id="tab-cuentas" role="tabpanel" aria-labelledby="btn-tab-cuentas">
+            <div class="tarjeta-dev">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+                <div>
+                  <h2 class="tarjeta-dev__titulo" style="margin-bottom:4px;">Cuentas de Acceso al Sistema</h2>
+                  <p class="tarjeta-dev__subtitulo" style="margin-bottom:0;">
+                    Administración de credenciales de soporte técnico y accesos base del personal del software.
+                  </p>
+                </div>
+                <button type="button" class="btn btn--principal" id="btn-abrir-crear-usuario" style="min-height:38px;">+ Crear Usuario</button>
+              </div>
+
+              <div class="tabla-envolvente">
+                <table class="tabla-panel">
+                  <thead>
+                    <tr>
+                      <th scope="col">Usuario</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Rol Asignado</th>
+                      <th scope="col">Contraseña</th>
+                      <th scope="col">Tipo de Cuenta</th>
+                      <th scope="col" style="text-align:right;">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-usuarios-dev">
+                    <tr><td colspan="6">Cargando cuentas...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== PESTAÑA 4: RESPALDOS & SNAPSHOTS ==================== -->
+          <div class="panel-pestana" id="tab-backups" role="tabpanel" aria-labelledby="btn-tab-backups">
+            <div class="tarjeta-dev">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+                <div>
+                  <h2 class="tarjeta-dev__titulo" style="margin-bottom:4px;">Copias de Seguridad Técnicas (Snapshots)</h2>
+                  <p class="tarjeta-dev__subtitulo" style="margin-bottom:0;">
+                    Exporta e importa respaldos completos de la base de datos local del sistema para recuperación ante desastres o migración.
+                  </p>
+                </div>
+                <div style="display:flex; gap:8px;">
+                  <button type="button" class="btn btn--principal" id="btn-exportar-snapshot" style="min-height:38px;">💾 Descargar Backup Completo (.json)</button>
+                  <label class="btn btn--secundario" style="min-height:38px; display:inline-flex; align-items:center; cursor:pointer;">
+                    📥 Restaurar Backup
+                    <input type="file" id="input-importar-snapshot" accept=".json" style="display:none;">
+                  </label>
+                  <button type="button" class="btn btn--claro" id="btn-hard-reset" style="color:var(--color-error); border-color:var(--color-error); min-height:38px;">⚠️ Hard Reset</button>
+                </div>
+              </div>
+
+              <div class="tabla-envolvente" style="margin-bottom:20px;">
+                <table class="tabla-panel">
+                  <thead>
+                    <tr>
+                      <th scope="col">Clave de Almacenamiento</th>
+                      <th scope="col">Propósito Técnico</th>
+                      <th scope="col">Tamaño</th>
+                      <th scope="col" style="text-align:right;">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tabla-storage-dev">
+                    <tr><td colspan="4">Cargando llaves...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 style="font-size:1rem; margin-top:20px; color:var(--color-madera-oscura);">Editor Técnico de JSON</h3>
+              <textarea id="visor-json-storage" class="codigo-bloque" rows="8" style="width:100%; box-sizing:border-box; resize:vertical;" placeholder="// Selecciona 'Ver / Editar' en una de las llaves de arriba..."></textarea>
+              <div class="fila-acciones-dev" style="margin-top:8px;">
+                <button type="button" class="btn btn--secundario" id="btn-guardar-json-visor">Guardar Cambios Técnicos</button>
+                <button type="button" class="btn btn--claro" id="btn-formatear-json">Formatear JSON</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== PESTAÑA 5: DIAGNÓSTICO & AUDITORÍA ==================== -->
+          <div class="panel-pestana" id="tab-diagnostico" role="tabpanel" aria-labelledby="btn-tab-diagnostico">
+            <div class="tarjeta-dev">
+              <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+                <div>
+                  <h2 class="tarjeta-dev__titulo" style="margin-bottom:4px;">Diagnóstico de Salud de la Plataforma</h2>
+                  <p class="tarjeta-dev__subtitulo" style="margin-bottom:0;">
+                    Comprobación de integridad de los archivos del software, latencia de respuesta y registro de eventos del servidor.
+                  </p>
+                </div>
+                <button type="button" class="btn btn--secundario" id="btn-ejecutar-diagnostico" style="min-height:38px;">↻ Re-ejecutar Test</button>
+              </div>
+
+              <div class="grid-diagnostico" id="contenedor-diagnostico-endpoints">
+                <!-- Se llena dinámicamente con JS -->
+              </div>
+
+              <h3 style="font-size:1rem; margin-top:20px; margin-bottom:10px; color:var(--color-madera-oscura);">Terminal de Logs de Auditoría y Eventos de TI</h3>
+              <div class="consola-terminal" id="terminal-logs"></div>
+              <div class="fila-acciones-dev" style="margin-top:10px;">
+                <button type="button" class="btn btn--claro" id="btn-limpiar-logs" style="font-size:0.8rem; min-height:32px;">Limpiar consola</button>
+                <button type="button" class="btn btn--claro" id="btn-test-log" style="font-size:0.8rem; min-height:32px;">Emitir ping de prueba</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL: REGISTRAR NUEVA TIENDA / TENANT -->
+  <dialog class="ventana" id="ventana-tienda" aria-labelledby="ventana-tienda-titulo">
+    <div class="ventana__caja">
+      <div class="ventana__cabecera">
+        <h2 id="ventana-tienda-titulo">Registrar Licorería Cliente</h2>
+        <button type="button" class="ventana__cerrar" data-cerrar aria-label="Cerrar">&times;</button>
+      </div>
+      <form id="form-tienda-dev">
+        <div class="ventana__cuerpo">
+          <div class="campo">
+            <label for="td-nombre">Nombre comercial de la licorería</label>
+            <input type="text" id="td-nombre" required placeholder="Ej: Licorería El Dorado">
+          </div>
+          <div class="campo">
+            <label for="td-id">ID de Tenant (identificador de subcarpeta/dominio)</label>
+            <input type="text" id="td-id" required placeholder="Ej: eldorado">
+          </div>
+          <div class="campo">
+            <label for="td-ubicacion">Ciudad / Ubicación</label>
+            <input type="text" id="td-ubicacion" required placeholder="Ej: Tarapoto, San Martín">
+          </div>
+          <div class="campo">
+            <label for="td-plan">Plan de Licencia de Software</label>
+            <select id="td-plan" required>
+              <option value="Estándar">Plan Estándar (Catálogo + Pedidos + Delivery)</option>
+              <option value="Pro">Plan Pro (+ Reportes Avanzados + Control Stock)</option>
+              <option value="Empresarial">Plan Empresarial (Múltiples sucursales)</option>
+            </select>
+          </div>
+        </div>
+        <div class="ventana__pie">
+          <button type="button" class="btn btn--claro" data-cerrar>Cancelar</button>
+          <button type="submit" class="btn btn--principal">Guardar Licorería</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- MODAL: CREAR / EDITAR USUARIO TÉCNICO -->
+  <dialog class="ventana" id="ventana-usuario" aria-labelledby="ventana-usuario-titulo">
+    <div class="ventana__caja">
+      <div class="ventana__cabecera">
+        <h2 id="ventana-usuario-titulo">Gestión de Cuenta</h2>
+        <button type="button" class="ventana__cerrar" data-cerrar aria-label="Cerrar">&times;</button>
+      </div>
+      <form id="form-usuario-dev">
+        <div class="ventana__cuerpo">
+          <div class="campo">
+            <label for="usr-usuario">Usuario de inicio de sesión</label>
+            <input type="text" id="usr-usuario" required autocapitalize="none" spellcheck="false">
+          </div>
+          <div class="campo">
+            <label for="usr-nombre">Nombre visible</label>
+            <input type="text" id="usr-nombre" required>
+          </div>
+          <div class="campo">
+            <label for="usr-clave">Contraseña</label>
+            <input type="text" id="usr-clave" required>
+          </div>
+          <div class="campo">
+            <label for="usr-rol">Rol en el sistema</label>
+            <select id="usr-rol" required>
+              <option value="superadmin">Superadmin (Proveedor de Plataforma)</option>
+              <option value="administrador">Administrador de Licorería</option>
+              <option value="cajero">Cajero de Licorería</option>
+              <option value="repartidor">Repartidor de Licorería</option>
+            </select>
+          </div>
+        </div>
+        <div class="ventana__pie">
+          <button type="button" class="btn btn--claro" data-cerrar>Cancelar</button>
+          <button type="submit" class="btn btn--principal">Guardar Cuenta</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- SCRIPTS PRINCIPALES -->
+  <script src="../assets/js/negocio.js"></script>
+  <script src="../assets/js/utilidades.js"></script>
+  <script src="../assets/js/admin/panel.js"></script>
+  <script src="../assets/js/admin/superadmin.js"></script>
+</body>
+</html>

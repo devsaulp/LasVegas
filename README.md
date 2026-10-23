@@ -51,6 +51,7 @@ Panel para el personal en la carpeta `admin/`. Con XAMPP se abre en <http://loca
 
 | Usuario | Contraseña | Rol | Entra a |
 | --- | --- | --- | --- |
+| `dev` | `dev123` | Superadmin | Consola de Superadmin (Gestión técnica de la plataforma y licencias; aislado de las operaciones internas de la tienda) |
 | `admin` | `admin123` | Administrador | Tablero, Pedidos, Productos, Stock y Reportes |
 | `cajero` | `cajero123` | Cajero | Tablero y Pedidos |
 | `repartidor` | `reparto123` | Repartidor | Entregas |
@@ -60,6 +61,7 @@ Los usuarios están en `datos/usuarios.json` y también se muestran en la pantal
 ### Pantallas
 
 - **Ingresar** (`login.html`): usuario y contraseña. Según el usuario se entra con su rol, que se guarda en `localStorage`.
+- **Superadmin** (`superadmin.html`): consola del desarrollador y proveedor de la plataforma (SaaS). Permite gestionar las licencias de las licorerías afiliadas (tenants), activar el modo mantenimiento global del sistema, administrar cuentas técnicas de acceso, generar y restaurar copias de seguridad (snapshots) y auditar la integridad del servidor. No tiene acceso a operaciones internas de ninguna tienda (pedidos, stock, productos ni ventas).
 - **Tablero** (`index.html`): pedidos de hoy, pendientes de pago, en camino y ventas del día, más los últimos pedidos.
 - **Pedidos** (`pedidos.html`): tabla con número, cliente, tipo, total, estado y hora; filtro por estado y ventana de detalle para cambiar el estado. Para "Asignado" y "En camino" se elige el repartidor; esos dos estados solo aparecen en pedidos con delivery.
 - **Productos** (`productos.html`): tabla con buscador y formulario para agregar o editar.

@@ -18,12 +18,41 @@
   var usuarios = [];
 
   LV.cargarJSON('usuarios.json').then(function (d) {
-    usuarios = d.usuarios;
+    usuarios = d.usuarios || [];
+    try {
+      var custom = JSON.parse(localStorage.getItem('lv_usuarios_custom') || '[]');
+      if (Array.isArray(custom)) {
+        custom.forEach(function (cu) {
+          var idx = usuarios.findIndex(function (u) { return u.usuario.toLowerCase() === cu.usuario.toLowerCase(); });
+          if (idx !== -1) {
+            usuarios[idx] = cu;
+          } else {
+            usuarios.push(cu);
+          }
+        });
+      }
+    } catch (e) {}
+
     // Tabla de usuarios de ejemplo para la demostración
-    document.getElementById('tabla-usuarios-demo').innerHTML = usuarios.map(function (u) {
-      return '<tr><td>' + LV.escapar(u.usuario) + '</td><td>' + LV.escapar(u.clave) + '</td><td>' +
+    var tablaDemo = document.getElementById('tabla-usuarios-demo');
+    tablaDemo.innerHTML = usuarios.map(function (u) {
+      return '<tr style="cursor:pointer;" title="Clic para rellenar"><td><code>' + LV.escapar(u.usuario) + '</code></td><td><code>' + LV.escapar(u.clave) + '</code></td><td>' +
         Sesion.nombreRol(u.rol) + '</td></tr>';
     }).join('');
+
+    // Rellenado rápido al hacer clic en una fila de la tabla demo
+    tablaDemo.addEventListener('click', function (e) {
+      var fila = e.target.closest('tr');
+      if (!fila) return;
+      var celdas = fila.querySelectorAll('code');
+      if (celdas.length >= 2) {
+        inputUsuario.value = celdas[0].textContent;
+        inputClave.value = celdas[1].textContent;
+        marcar(inputUsuario, 'error-usuario', '');
+        marcar(inputClave, 'error-clave', '');
+        inputClave.focus();
+      }
+    });
   }).catch(function () {
     mostrarError('No se pudieron cargar los usuarios. Abre el panel desde un servidor web (por ejemplo XAMPP).');
   });

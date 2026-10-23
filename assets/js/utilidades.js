@@ -305,6 +305,19 @@ var LV = (function () {
     ubicarMenu();
     window.addEventListener('resize', ubicarMenu);
 
+    if (window.NEGOCIO && window.NEGOCIO.modoMantenimiento && !document.getElementById('aviso-mantenimiento-tienda')) {
+      var banner = document.createElement('div');
+      banner.id = 'aviso-mantenimiento-tienda';
+      banner.className = 'aviso aviso--alerta';
+      banner.style.textAlign = 'center';
+      banner.style.margin = '0';
+      banner.style.borderRadius = '0';
+      banner.style.borderWidth = '0 0 1px 0';
+      banner.innerHTML = '<strong>Aviso del Desarrollador:</strong> ' +
+        (window.NEGOCIO.mensajeMantenimiento ? escapar(window.NEGOCIO.mensajeMantenimiento) : 'Modo mantenimiento / pruebas activo en la plataforma.');
+      cabecera.parentNode.insertBefore(banner, cabecera);
+    }
+
     actualizarContador();
   }
 

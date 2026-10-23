@@ -27,6 +27,8 @@ var Panel = (function () {
   }
 
   var MENU = [
+    { id: 'superadmin', texto: 'Superadmin (Plataforma)', url: 'superadmin.html', roles: ['superadmin'],
+      icono: icono('<path d="M12 2l8 4v6c0 5.25-3.5 10-8 11-4.5-1-8-5.75-8-11V6l8-4z"/><circle cx="12" cy="12" r="3"/>') },
     { id: 'tablero', texto: 'Tablero', url: 'index.html', roles: ['administrador', 'cajero'],
       icono: icono('<rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>') },
     { id: 'pedidos', texto: 'Pedidos', url: 'pedidos.html', roles: ['administrador', 'cajero'],

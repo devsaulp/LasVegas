@@ -1,6 +1,7 @@
 {
   "nota": "Usuarios de demostración. Las claves están en texto plano solo porque el inicio de sesión es simulado. Nunca guardes claves reales así.",
   "usuarios": [
+    { "usuario": "dev", "clave": "dev123", "nombre": "Desarrollador (Superadmin)", "rol": "superadmin" },
     { "usuario": "admin", "clave": "admin123", "nombre": "Administradora de ejemplo", "rol": "administrador" },
     { "usuario": "cajero", "clave": "cajero123", "nombre": "Cajero de ejemplo", "rol": "cajero" },
     { "usuario": "repartidor", "clave": "reparto123", "nombre": "Repartidor de ejemplo", "rol": "repartidor" }
