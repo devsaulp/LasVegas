@@ -4,6 +4,28 @@ Todos los cambios notables realizados en este proyecto a partir de esta fecha qu
 
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/).
 
+## [2026-10-23 14:55] - Módulo Administrativo y Gestión Completa del Catálogo
+### Añadido
+- **Gestor visual de catálogo de productos**: [admin/productos.html](file:///c:/xampp/htdocs/LasVegas/admin/productos.html) con su lógica interactiva en [assets/js/admin/productos.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/productos.js), que permite al personal administrativo:
+  - Visualizar la lista completa de productos con buscador en tiempo real por nombre, marca o categoría y conteo de resultados.
+  - Agregar nuevos productos con asignación de código ID, nombre, categoría, marca, presentación, precio unitario, stock inicial, stock mínimo para alertas, indicador de producto destacado y descripción.
+  - Modificar cualquier producto existente a través de un cuadro de diálogo accesible (`<dialog>`), con validación de entradas de formulario.
+- **Módulo de control de inventario y existencias**: [admin/stock.html](file:///c:/xampp/htdocs/LasVegas/admin/stock.html) y [assets/js/admin/stock.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/stock.js) para la supervisión y ajuste ágil de niveles de stock (disponibles, pocas unidades y agotados).
+- **Panel interno operativo integrado**:
+  - Pantalla de inicio de sesión multirrol: [admin/login.html](file:///c:/xampp/htdocs/LasVegas/admin/login.html) y [assets/js/admin/login.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/login.js).
+  - Tablero general con métricas de ventas y pedidos del día: [admin/index.html](file:///c:/xampp/htdocs/LasVegas/admin/index.html) y [assets/js/admin/tablero.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/tablero.js).
+  - Gestión de pedidos y estados de despacho: [admin/pedidos.html](file:///c:/xampp/htdocs/LasVegas/admin/pedidos.html) y [assets/js/admin/pedidos.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/pedidos.js).
+  - Hoja de ruta para motorizados y entregas: [admin/entregas.html](file:///c:/xampp/htdocs/LasVegas/admin/entregas.html) y [assets/js/admin/entregas.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/entregas.js).
+  - Reportes de ventas y productos más pedidos: [admin/reportes.html](file:///c:/xampp/htdocs/LasVegas/admin/reportes.html) y [assets/js/admin/reportes.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/reportes.js).
+  - Infraestructura de sesión y control de acceso: [assets/js/admin/sesion.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/sesion.js) y [assets/js/admin/panel.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/panel.js).
+  - Sistema de diseño de panel interno: [assets/css/admin.css](file:///c:/xampp/htdocs/LasVegas/assets/css/admin.css) con layout de panel lateral, barra superior, componentes modales nativos y tablas adaptadas para móviles.
+  - Conjunto de datos base: cuentas de personal en [datos/usuarios.json](file:///c:/xampp/htdocs/LasVegas/datos/usuarios.json) y pedidos simulados en [datos/pedidos.json](file:///c:/xampp/htdocs/LasVegas/datos/pedidos.json).
+
+### Justificación
+- Proporcionar a la administración de la licorería una interfaz gráfica dedicada e intuitiva para gestionar el catálogo (precios, stock y nuevos artículos) y la operativa de pedidos sin depender de bases de datos tradicionales ni servidores backend complejos, conservando la ligereza y portabilidad del frontend estático (HTML5, CSS3 y Vanilla JavaScript).
+
+---
+
 ## [2026-10-20 16:05] - Aislamiento Completo de Superadmin respecto a las Operaciones Internas de Licorerías
 ### Modificado
 - [assets/js/admin/panel.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/panel.js): Eliminación completa de `superadmin` de los módulos operativos de la tienda (`pedidos`, `productos`, `stock`, `entregas`, `tablero` y `reportes`). El superadmin ahora solo visualiza la opción "Superadmin (Plataforma)" en su menú lateral.
