@@ -4,6 +4,22 @@ Todos los cambios notables realizados en este proyecto a partir de esta fecha qu
 
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/).
 
+## [2026-10-23 16:20] - Documentación Técnica y Control de Versiones en Carpeta docs (.docx)
+### Añadido
+- **Nuevo documento técnico formal en Word**: [docs/Licoreria_Las_Vegas_Documentacion_Panel_Admin.docx](file:///c:/xampp/htdocs/LasVegas/docs/Licoreria_Las_Vegas_Documentacion_Panel_Admin.docx), estructurado bajo el estándar académico y técnico del proyecto (UNSM / FISI / EPISI):
+  - Portada oficial con metadatos del curso, docente y autores.
+  - Tabla de control de versiones sincronizada.
+  - Especificación exhaustiva de la arquitectura sin base de datos (HTML5, CSS3, JavaScript puro y persistencia en cliente).
+  - Guía detallada del módulo de catálogo ([admin/productos.html](file:///c:/xampp/htdocs/LasVegas/admin/productos.html) y [assets/js/admin/productos.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/productos.js)) con operaciones CRUD, tipos de datos, restricciones y validación de campos.
+  - Especificación del semáforo de inventario y alertas de stock mínimo ([admin/stock.html](file:///c:/xampp/htdocs/LasVegas/admin/stock.html)).
+  - Matriz de roles y niveles de acceso (administrador, encargado, repartidor y superadmin).
+  - Bitácora cronológica de modificaciones para auditoría técnica.
+
+### Modificado
+- [docs/Licoreria_Las_Vegas_Documento_Tecnico.docx](file:///c:/xampp/htdocs/LasVegas/docs/Licoreria_Las_Vegas_Documento_Tecnico.docx): Actualización de la Tabla 1 (*Control de versiones*) incorporando las versiones 1.1 y 1.2 correspondientes a la integración del panel interno y el módulo interactivo de catálogo de productos.
+
+---
+
 ## [2026-10-23 14:55] - Módulo Administrativo y Gestión Completa del Catálogo
 ### Añadido
 - **Gestor visual de catálogo de productos**: [admin/productos.html](file:///c:/xampp/htdocs/LasVegas/admin/productos.html) con su lógica interactiva en [assets/js/admin/productos.js](file:///c:/xampp/htdocs/LasVegas/assets/js/admin/productos.js), que permite al personal administrativo:
