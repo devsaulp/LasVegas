@@ -1,0 +1,12 @@
+.git
+.gitignore
+.dockerignore
+.vscode
+.idea
+docs/
+*.md
+*.env
+.env*
+node_modules/
+capturas/
+test-results/

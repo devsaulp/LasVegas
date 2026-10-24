@@ -4,6 +4,18 @@ Todos los cambios notables realizados en este proyecto a partir de esta fecha qu
 
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/).
 
+## [2026-10-24 10:15] - Infraestructura de Contenedorización Docker y Despliegue en Producción
+### Añadido
+- **Contenedorización para producción**:
+  - [Dockerfile](file:///c:/xampp/htdocs/LasVegas/Dockerfile): Configuración basada en `nginx:alpine` para servir el sitio estático y archivos JSON con mínimo consumo de recursos y alta concurrencia.
+  - [.dockerignore](file:///c:/xampp/htdocs/LasVegas/.dockerignore): Exclusión de archivos de desarrollo, documentación pesada (`docs/`), variables de entorno locales y repositorio Git para optimizar el tamaño de la imagen Docker.
+  - [docker-compose.yml](file:///c:/xampp/htdocs/LasVegas/docker-compose.yml): Orquestación multi-contenedor que integra el frontend web (`lasvegas-app`) y la base de datos MySQL 8.4 (`lasvegas-db`) conectados a la red externa `web` para exposición a través de Cloudflare Tunnel.
+
+### Justificación
+- Estandarizar el despliegue del proyecto en el servidor de producción `sdlteam`, integrándolo al ecosistema Docker existente y permitiendo la publicación segura mediante túneles Cloudflare sin exponer puertos al exterior.
+
+---
+
 ## [2026-10-23 16:20] - Documentación Técnica y Control de Versiones en Carpeta docs (.docx)
 ### Añadido
 - **Nuevo documento técnico formal en Word**: [docs/Licoreria_Las_Vegas_Documentacion_Panel_Admin.docx](file:///c:/xampp/htdocs/LasVegas/docs/Licoreria_Las_Vegas_Documentacion_Panel_Admin.docx), estructurado bajo el estándar académico y técnico del proyecto (UNSM / FISI / EPISI):
